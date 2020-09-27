@@ -38,7 +38,7 @@ ul {
 h3 {
   color: #ffb300;
   margin: 10px 0;
-  text-transform: lowercase;
+  /* text-transform: lowercase; */
   font-size: 1.25em;
 }
 
@@ -127,7 +127,7 @@ h3 {
   margin-top: 10px;
   margin-bottom: 0;
   font-size: 1.75em;
-  text-transform: lowercase;
+  /* text-transform: lowercase; */
   color: #1a237e;
 }
 
@@ -135,7 +135,8 @@ h3 {
   margin-top: 10px;
   margin-bottom: 0;
   font-size: 1.5em;
-  text-transform: lowercase;
+  /* text-transform: lowercase; */
+  text-align: right;
   color: #283593;
 }
 
