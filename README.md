@@ -1,5 +1,7 @@
 ### Hi, 👋 I'm _Ramkumar M_  ✨ this is my GitHub profile..
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4fd05b8d-9ea6-4c79-9228-3856d6253b34/deploy-status)](https://app.netlify.com/sites/ramkumarmrj/deploys)
 
+<br>
 Also find me on :
 
 LinkedIn : <a href="linkedin.com/in/ramkumarmrj" target="_blank">ramkumarmrj</a> <br>
