@@ -9,4 +9,5 @@ Contact Mail : ramkumar.mrj97@gmail.com <br>
 Instagram : <a href="https://www.instagram.com/ramkumar_mrj" target="_blank">ramkumar_mrj</a>
 
 <!-- site : <a href="https://fyit.noads.biz" target="_blank">fyit.noads.biz</a> -->
-<a href="https://ramkumarmrj.github.io/RamkumarMrj/.">Site</a>
+<https://ramkumarmrj.github.io/RamkumarMrj/> <br>
+<https://ramkumarmrj.netlify.app>
