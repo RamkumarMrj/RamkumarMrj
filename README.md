@@ -72,6 +72,6 @@
 - <a href="https://ramkumarmrj.github.io/RamkumarMrj/">Github.io</a>
 
 ---
-[![Dino](https://github.com/RamkumarMrj/RamkumarMrj/master/assets/dino.gif")](#)
+[![Dino](https://github.com/RamkumarMrj/RamkumarMrj/blob/master/assets/dino.gif)](#)
 
 ---
