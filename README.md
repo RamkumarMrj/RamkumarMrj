@@ -75,3 +75,7 @@
 [![Dino](https://github.com/RamkumarMrj/RamkumarMrj/blob/master/assets/dino.gif)](#)
 
 ---
+
+<h4 align="center">Visitor's count </h4>
+
+<p align="center"><img src="https://profile-counter.glitch.me/{RamkumarMrj}/count.svg" alt="Ramkumar M :: Visitor's Count" /></p>
