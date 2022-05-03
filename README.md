@@ -1,8 +1,9 @@
 <h1 align="center">Hi <img src="assets/Hi.gif" width="40px" />, I'm Ramkumar..</h1>
 
-## Developer 
-<img src="https://img.shields.io/badge/firebase%20-%23039BE5.svg?&style=for-the-badge&logo=firebase"/> [![Netlify Status](https://api.netlify.com/api/v1/badges/4fd05b8d-9ea6-4c79-9228-3856d6253b34/deploy-status)](https://app.netlify.com/sites/ramkumarmrj/deploys) <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="59" height="20"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="59" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path fill="#79589f" d="M0 0h40v20H0z"/><path fill="#97CA00" d="M40 0h19v20H40z"/><path fill="url(#b)" d="M0 0h59v20H0z"/></g><g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="110"> </svg> 
+<!-- ## Software Developer    -->
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4fd05b8d-9ea6-4c79-9228-3856d6253b34/deploy-status)](https://app.netlify.com/sites/ramkumarmrj/deploys) <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="59" height="20"><linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient><clipPath id="a"><rect width="59" height="20" rx="3" fill="#fff"/></clipPath><g clip-path="url(#a)"><path fill="#79589f" d="M0 0h40v20H0z"/><path fill="#97CA00" d="M40 0h19v20H40z"/><path fill="url(#b)" d="M0 0h59v20H0z"/></g><g fill="#fff" text-anchor="middle" font-family="DejaVu Sans,Verdana,Geneva,sans-serif" font-size="110"> </svg> 
 
+  
 Before software can be reusable it first has to be usable. - Ralph Johnson
 
 * 🌍  I'm based in India
