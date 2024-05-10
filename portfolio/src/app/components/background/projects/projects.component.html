@@ -1,0 +1,19 @@
+<div class="card">
+  <h3><mat-icon svgIcon="projects" aria-hidden="false" aria-label="projects"></mat-icon>&nbsp;&nbsp;&nbsp;Projects Experience</h3>
+  <ul *ngFor="let project of data.projects">
+    <li>
+      <p class="tags">
+        <a href="{{ project.url }}" target="_blank">{{project.name}} 
+          <mat-icon svgIcon="open-link" aria-hidden="false" aria-label="open-link"></mat-icon>
+        </a>
+        <span><span> | {{ project.startDate | date: "MMMM YYYY" }} - {{ project.endDate | date: "MMMM YYYY" }}</span></span>
+      </p>
+      <a class="edit" href="#"><i class="fas fa-pen stroke-transparent-blue"></i></a>
+      <ul>
+        <li>{{project.description}}</li>
+        <li><b>Stack Used:</b> {{ project.stack.join(', ') }}</li>
+      </ul>
+    </li>
+  </ul>
+</div>
+

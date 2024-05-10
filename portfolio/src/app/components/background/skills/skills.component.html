@@ -1,0 +1,11 @@
+<div class="card">
+  <h3><mat-icon svgIcon="skills" aria-hidden="false" aria-label="skills"></mat-icon>&nbsp;&nbsp;&nbsp;Skills</h3>
+  <ul *ngFor="let skill of data.skills">
+    <li>
+      <p class="tags">{{skill.name}}</p>
+      <ul>
+        <li>{{ skill.keywords.join(',  ') }}</li>
+      </ul>
+    </li>
+  </ul>
+</div>

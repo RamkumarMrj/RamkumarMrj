@@ -1,0 +1,10 @@
+<div class="card">
+  <h3><mat-icon svgIcon="education" aria-hidden="false" aria-label="education"></mat-icon>&nbsp;&nbsp;&nbsp;Education
+  </h3>
+  <ul *ngFor="let edu of data.education">
+    <li>
+      <p class="tags">{{ edu.studyType }} - {{ edu.area }}<br><span> {{ edu.institution }}, {{ edu.place }} | <span>{{
+            edu.endDate | date: "MMMM YYYY" }}</span></span></p>
+    </li>
+  </ul>
+</div>

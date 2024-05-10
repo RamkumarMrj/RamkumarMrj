@@ -1,0 +1,35 @@
+<div id="image"  *ngIf="data && data.basics && data.basics.profiles">
+  <img id="profile-photo" src="{{data?.basics?.image || 'Not found'}}" alt="Profile-Image">
+</div>
+<p id="name">{{data?.basics?.name || 'Not found'}}<br><span id="email">{{data?.basics?.email || 'Not found'}}</span></p>
+<p id="designation">{{data?.work[0].position || 'Not found'}}<br><span id="college">{{data?.work[0]?.company || 'Not found'}}, {{data?.work[0]?.location || 'Not found'}}</span></p>
+<div id="social-links" *ngFor="let profile of data?.basics.profiles">
+  <a [href]="profile.url" target="_blank">
+    <mat-icon [svgIcon]="profile.network.toLowerCase()" aria-hidden="false">{{profile.network}}</mat-icon>
+  </a>
+</div>
+<hr width="100%">
+<div id="about">
+  <h4 style="display:inline;">About</h4>
+</div>
+<p id="year-graduation">Year of Graduation<br><strong>{{data?.education[0]?.endDate | date:'MMMM yyyy' || 'Not found'}}</strong></p>
+<p id="education">Education<br><strong>{{data?.education[0]?.studyType || 'Not found'}} |
+    {{data?.education[0]?.institution || 'Not found'}}, {{data?.education[0]?.place || 'Not found'}}</strong></p>
+<p id="more-about">More about me<br><span>{{data?.education[0]?.area || 'Not found'}}</span></p>
+<p id="telephone">Phone<br><strong>{{data?.basics?.phone || 'Not found'}}</strong></p>
+<hr>
+<div id="about">
+  <h6 style="display:inline;">Languages</h6>
+  <ul *ngFor="let lang of data?.languages">
+    <li id="languages">{{lang.language}} - <em>{{lang.fluency}}</em></li>
+  </ul>
+  <p><span id="college">{{data?.basics.location.city}}, {{data?.basics.location.region}},
+      {{data?.basics.location.countryCode}}</span></p>
+</div>
+<hr>
+<p class="tags">
+  <a href="assets/data?/resume.pdf" download="Ramkumar Murthy">Download CV
+    <mat-icon svgIcon="download"></mat-icon>
+  </a><br><br>
+  <a href="assets/data/resume.pdf" target="_blank">View CV  <mat-icon svgIcon="open-link"></mat-icon></a>
+</p>

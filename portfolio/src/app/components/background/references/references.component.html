@@ -1,0 +1,8 @@
+<div class="card">
+  <h3><mat-icon svgIcon="references" aria-hidden="false" aria-label="references"></mat-icon>&nbsp;&nbsp;&nbsp;References</h3>
+  <ul *ngFor="let ref of data.references">
+    <li><p class="tags">{{ref.name}}</p>
+      <em>"{{ref.reference}}"</em>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,412 @@
+{
+  "basics": {
+    "name": "Ramkumar Murthy",
+    "label": "Software Engineer",
+    "image": "https://media.licdn.com/dms/image/D5603AQFlTK4SJHVbCQ/profile-displayphoto-shrink_200_200/0/1689590027878?e=1720051200&v=beta&t=plBTzVvjgD0u9xLQGD4fKx2mhDXuVTBd-E1yHXhCDi8",
+    "email": "ramkumar.mrj97@gmail.com",
+    "phone": "+91 770 8151 324",
+    "url": "https://ramkumar-mrj.github.io",
+    "url1": [
+      "https://ramkumar-mrj.web.app/",
+      "https://ramkumarmrj.netlify.app/",
+      "https://ramkumarmrj.github.io/RamkumarMrj/"
+    ],
+    "summary": "Versatile full-stack developer with a passion for building intuitive user interfaces and efficient back-end systems. Skilled in Angular, Python, and the ELK stack, with a proven ability to develop and maintain insightful dashboards. Experienced in optimizing development processes through DevOps methodologies and collaborating effectively using Git and Bitbucket. Eager to leverage technical expertise and problem-solving skills to contribute to innovative projects in a fast-paced environment.",
+    "location": {
+      "address": null,
+      "city": "Coimbatore",
+      "region": "TN",
+      "countryCode": "IN"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "RamkumaMrj",
+        "url": "https://www.linkedin.com/in/RamkumaMrj"
+      },
+      {
+        "network": "GitHub",
+        "username": "RamkumarMrj",
+        "url": "https://github.com/RamkumarMrj"
+      },
+      {
+        "network": "Medium",
+        "username": "RamkumaMrj",
+        "url": "https://www.medium.com/@RamkumaMrj"
+      },
+      {
+        "network": "Dev.to",
+        "username": "RamkumaMrj",
+        "url": "https://www.dev.to/@RamkumaMrj"
+      },
+      {
+        "network": "Stackoverflow",
+        "username": "RamkumaMrj",
+        "url": "https://stackoverflow.com/users/13523132/ramkumar"
+      },
+      {
+        "network": "Twitter",
+        "username": "RamkumaMrj",
+        "url": "https://x.com/ramkumarmrj/"
+      },
+      {
+        "network": "Instagram",
+        "username": "ramkumar_mrj",
+        "url": "https://www.instagram.com/ramkumar_mrj/"
+      },
+      {
+        "network": "Pinterest",
+        "username": "RamkumaMrj",
+        "url": "https://in.pinterest.com/ramkumarmrj/"
+      },
+      {
+        "network": "Facebook",
+        "username": "RamkumaMrj",
+        "url": "https://www.facebook.com/RamkumarMrj"
+      }
+    ]
+  },
+  "work": [
+    {
+      "company": "Cisco Systems India Pvt.Ltd",
+      "url": "https://drive.google.com/file/d/1Uam2nb5u81IyN1xS9UbsSm6FXsAB4JIN/view",
+      "location": "Bengaluru, Karnataka, India",
+      "position": "Software Engineer Apprentice",
+      "startDate": "2022-10-31",
+      "endDate": "2023-10-30",
+      "summary": "Highly motivated and adaptable technical professional with a strong foundation in full-stack development and a passion for continuous learning. Proven ability to quickly grasp new technologies and contribute to projects involving dashboard development, process optimization, and software development.",
+      "highlights": [
+        "Extracted Jenkins build logs, processed data with Python APIs, leveraged ELK for analysis, and visualized key performance metrics using Angular dashboards.",
+        "Developed Angular dashboards from scratch, gathering data through filters and APIs, and creating comprehensive visualizations.",
+        "Actively participated in agile development and shift-left testing processes, leveraging Git/GitHub and Bitbucket for version control and managing Linux testbeds for testing and deployment.",
+        "Completed training in CCNA, Python Programming, Java Full Stack Development (DevOps, Agile), and professional skills."
+      ]
+    },
+    {
+      "company": "Roots Casts Pvt.Ltd",
+      "url": "https://www.linkedin.com/company/7890496",
+      "location": "Coimbatore, Tamil Nadu",
+      "position": "Document Maintenance Clerk",
+      "startDate": "2018-06-01",
+      "endDate": "2018-05-30",
+      "summary": "Responsible for maintaining documents and operating systems at a die casting company.",
+      "highlights": [
+        "Utilizing SAP for maintaining die life and running status, as well as raising PR and PO.",
+        "Maintaining data documents.",
+        "Performing data entry and system operation duties."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "KGiSL Institute of Technology",
+      "place": "Coimbatore, TN",
+      "area": "Computer Science & Engineering",
+      "studyType": "Bachelor of Engineering",
+      "startDate": "2019-06-28",
+      "endDate": "2022-07-01",
+      "courses": []
+    },
+    {
+      "institution": "Ranganathar Institute of Polytechnic College",
+      "place": "Coimbatore, TN",
+      "area": "Computer Science & Engineering",
+      "studyType": "Diploma",
+      "marks": "3785/4400",
+      "percentage": "86",
+      "startDate": "2015-06-26",
+      "endDate": "2018-04-01",
+      "courses": []
+    },
+    {
+      "institution": "Lions Pre-University College",
+      "place": "Kollegal, KA",
+      "area": "PUC",
+      "studyType": "Commerce [EGBA]",
+      "marks": "448/600",
+      "percentage": "74.67",
+      "startDate": "2013-06-01",
+      "endDate": "2015-03-01",
+      "courses": []
+    },
+    {
+      "institution": "Sri Chowdeshwari High School",
+      "place": "Kollegal, KA",
+      "area": "School",
+      "studyType": "SSLC",
+      "marks": "342/625",
+      "percentage": "54.72",
+      "startDate": "2012-06-01",
+      "endDate": "2013-04-01",
+      "courses": []
+    }
+  ],
+  "skills": [
+    {
+      "name": "Frontend Development",
+      "level": "Expert",
+      "keywords": [
+        "HTML5",
+        "CSS3",
+        "ReactJS",
+        "Bootstrap",
+        "AngularJS",
+        "Flutter",
+        "Material-UI"
+      ]
+    },
+    {
+      "name": "Backend Development",
+      "level": "Expert",
+      "keywords": [
+        "Python",
+        "Flask",
+        "Django",
+        "Java",
+        "Spring Boot",
+        "RESTful APIs",
+        "C/C++",
+        "C#",
+        "ASP.net"
+      ]
+    },
+    {
+      "name": "Databases",
+      "level": "Experienced",
+      "keywords": [
+        "MongoDB",
+        "MySQL",
+        "PostgreSQL"
+      ]
+    },
+    {
+      "name": "Cloud Platforms & DevOps Tools",
+      "level": "Familiar",
+      "keywords": [
+        "AWS",
+        "Google Cloud Platform",
+        "Docker",
+        "CI/CD",
+        "Jenkins",
+        "ELK Stack",
+        "Firebase",
+        "Git & GitHub"
+      ]
+    },
+    {
+      "name": "Soft Skills & Interests",
+      "keywords": [
+        "Teamwork",
+        "Communication",
+        "Problem-solving",
+        "Critical Thinking",
+        "Leadership",
+        "Open Source Contribution",
+        "Technical Writing",
+        "Technology Enthusiast",
+        "Continuous Learning"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Digital Document Scanner",
+      "description": "Developed a mobile app for document scanning, QR code tools, and sketching, enabling users to efficiently digitize and organize documents.",
+      "startDate": "2022-02-01",
+      "endDate": "2022-06-01",
+      "url": "https://digitallscaner.web.app",
+      "stack": [
+        "Flutter",
+        "Dart",
+        "Firebase"
+      ]
+    },
+    {
+      "name": "IPC Search Engine",
+      "description": "Created a search engine using Python and Django to facilitate quick and accurate retrieval of relevant IPC sections for legal research.",
+      "startDate": "2021-02-01",
+      "endDate": "2021-04-01",
+      "url": null,
+      "stack": [
+        "Python",
+        "Flask",
+        "Django"
+      ]
+    },
+    {
+      "name": "SMRT Proctor",
+      "description": "Developed a desktop app for online exam proctoring with live camera and screen sharing. Integrated UIPath automation for email-to-Excel, Excel-to-html code conversion.",
+      "startDate": "2021-01-01",
+      "endDate": "2021-05-01",
+      "url": "https://smrtproctor.orgfree.com/",
+      "stack": [
+        "Python",
+        "Django",
+        "UIPath Automation"
+      ]
+    },
+    {
+      "name": "Fyit Downloader",
+      "description": "Designed and developed an open-source Windows desktop application for media video downloads and WhatsApp message scheduling, achieving significant downloads on SourceForge.",
+      "startDate": "2020-04-01",
+      "endDate": "2020-07-01",
+      "url": "https://fyit.noads.biz",
+      "stack": [
+        "Python (Tkinter)"
+      ]
+    },
+    {
+      "name": "Web Applications",
+      "description": "Developed web applications and cross-platform applications using GitHub and Firebase for hosting, and cloud services like AWS and GCP for backends.",
+      "startDate": null,
+      "endDate": null,
+      "url": "https://github.com/RamkumarMrj",
+      "stack": [
+        "Flutter",
+        "Bootstrap",
+        "AngularJS",
+        "ReactJS"
+      ]
+    }
+  ],
+  "awards": [
+    {
+      "title": null,
+      "date": null,
+      "awarder": null
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Python Training Certification Course",
+      "startDate": "2023-04-10",
+      "issuer": "Simplilearn",
+      "url": "https://certificates.simplicdn.net/share/4269859.pdf"
+    },
+    {
+      "name": "Java Full Stack Development",
+      "startDate": "2023-04-13",
+      "issuer": "Simplilearn",
+      "url": "https://drive.google.com/file/d/1H2CFwgpQXA5_OmvCJdKGMf0ZTgI_UKId/view"
+    },
+    {
+      "name": "Implementing and Administering Cisco Solutions (CCNA) 1.0",
+      "startDate": "2022-11-18",
+      "issuer": "Cisco",
+      "url": "https://drive.google.com/file/d/1XeoA1f6I6okQjdGFNBdtdF158LCM1aBz/view"
+    },
+    {
+      "name": "Red Hat System Administration I (RH124)",
+      "startDate": "2022-07-26",
+      "issuer": "Red Hat Academy",
+      "url": "https://rha.ole.redhat.com/rha/api/certificates/attendance/uuid/07dc3248-0041-4ea9-b467-8fec5279cac9"
+    },
+    {
+      "name": "Red Hat System Administration II (RH134)",
+      "startDate": "2022-07-26",
+      "issuer": "Red Hat Academy",
+      "url": "https://rha.ole.redhat.com/rha/api/certificates/attendance/uuid/0c90f1c5-e099-484b-8a2b-64c119ec8665"
+    },
+    {
+      "name": "CCNA: Networks, Switching, Routing & Wireless Essentials, Networking, Security & Automation From Data to Insights with Google Cloud",
+      "startDate": "2021-12-27",
+      "issuer": "Cisco Network Academy",
+      "url": "https://www.credly.com/users/ramkumarmrj/badges"
+    },
+    {
+      "name": "AWS Academy Cloud Architecting",
+      "startDate": "2021-12-23",
+      "issuer": "AWS Academy",
+      "url": "https://www.credly.com/badges/3628db62-7397-4fb3-a31e-89da626c26af"
+    },
+    {
+      "name": "From Data to Insights with Google Cloud",
+      "startDate": "2021-10-30",
+      "issuer": "Coursera",
+      "url": "https://coursera.org/share/4882dad677522471adc5dea33470410e"
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Professional"
+    },
+    {
+      "language": "Tamil",
+      "fluency": "Native"
+    },
+    {
+      "language": "Kannada",
+      "fluency": "Native"
+    },
+    {
+      "language": "Malayalam",
+      "fluency": "Conversational"
+    },
+    {
+      "language": "Telugu",
+      "fluency": "Conversational"
+    },
+    {
+      "language": "Hindi",
+      "fluency": "Read/Write"
+    }
+  ],
+  "opensource": [
+    {
+      "project": "Project Name",
+      "url": "Link to the project repository",
+      "contributions": [
+        "Description of your contributions to the project"
+      ]
+    }
+  ],
+  "blog": [
+    {
+      "url": "https://medium.com/@RamkumarMrj/create-ec2-m1-mac-instances-for-macos-1cb9ea962b18",
+      "title": "Create an EC2 M1 Mac instances for macOS",
+      "description": "EC2 M1 Mac instances are now generally available! -- announcement from AWS EC2 Mac Team."
+    },
+    {
+      "url": "https://medium.com/@RamkumarMrj/dockerizing-front-end-as-angular-and-back-end-as-flask-1e944a0ed77",
+      "title": "Dockerizing Front End as Angular and Back End as Flask",
+      "description": "Expert in dockerizing."
+    },
+    {
+      "url": "https://medium.com/@RamkumarMrj/dockerizing-front-end-as-angular-and-back-end-as-flask-1e944a0ed77",
+      "title": "What is EC2 M1 Mac instances? & How to Launch?",
+      "description": "Create an EC2 M1 Mac instances for macOS."
+    },
+    {
+      "url": "https://dev.to/ramkumarmrj/conquering-the-container-a-guide-to-dockerizing-your-angular-and-flask-app-3lce",
+      "title": "Conquering the Container: A Guide to Dockerizing Your Angular and Flask App",
+      "description": "Dockerizing Front End as Angular and Back End as Flask"
+    }
+  ],
+  "volunteer": [
+    {
+      "organization": "Organization Name",
+      "position": "Volunteer Role",
+      "startDate": "2022-01-01",
+      "endDate": "2023-01-01",
+      "summary": "Brief description of your volunteer work and contributions",
+      "highlights": [
+        "Specific achievements or tasks"
+      ]
+    }
+  ],
+  "publications": [
+    {
+      "title": "Title of Publication/Presentation",
+      "date": "2023-03-01",
+      "publisher/event": "Publisher Name or Event Name",
+      "url": "Link to the publication/presentation (if available)"
+    }
+  ],
+  "references": [
+    {
+      "name": "BHUVANESH MUTHUSAMY",
+      "reference": "I wholeheartedly recommend Ramkumar as a highly proficient Python expert with exceptional problem-solving skills. His valuable contributions have greatly benefited our team, and his dedication to tackling complex challenges is truly commendable."
+    }
+  ]
+}
