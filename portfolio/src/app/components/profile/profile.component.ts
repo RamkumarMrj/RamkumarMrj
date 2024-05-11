@@ -48,6 +48,7 @@ export class ProfileComponent implements OnInit {
     this.dataService.getData().subscribe((data) => {
       this.data = data;
     })
+    // console.log(this.data);
   }
 
   // downloadPdf(): void {
