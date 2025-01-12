@@ -25,7 +25,7 @@ import { APP_BASE_HREF } from '@angular/common';
     SkillsComponent,
     CertificationsComponent,
     EducationComponent,
-    ReferencesComponent
+    ReferencesComponent,
   ],
   imports: [
     BrowserModule,

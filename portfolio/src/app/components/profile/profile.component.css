@@ -1,0 +1,35 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+  }
+  
+  .card {
+    width: calc(100% - 20px); 
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-content {
+    display: flex;
+    flex-direction: column; 
+  }
+  
+  .card-content h5 {
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+  }
+  
+  .card-content p {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  @media (max-width: 768px) {
+    .card {
+      width: 100%; 
+    }
+  }
+  

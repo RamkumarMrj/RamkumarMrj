@@ -1,6 +1,7 @@
 <div class="card">
   <h3><mat-icon svgIcon="work" aria-hidden="false" aria-label="work"></mat-icon>&nbsp;&nbsp;&nbsp;Work Experience</h3>
   <ul *ngFor="let exp of data.work">
+    <hr>
     <li>
       <p class="tags">
         <a href="{{ exp.url }}" target="_blank">{{exp.position}} <mat-icon svgIcon="open-link" aria-hidden="false" aria-label="open-link"></mat-icon></a> | <span>{{exp.company}}</span><br>
