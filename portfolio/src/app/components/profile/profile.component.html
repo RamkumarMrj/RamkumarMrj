@@ -38,12 +38,13 @@
 </div>
 <hr>
 <div id="blogs">
-  <h4 style="display:inline;">Blogs</h4>
+  <h2 style="display:inline;">Blogs</h2>
   <p></p>
   <div class="card-container" *ngIf="data">
     <div class="card" *ngFor="let blog of data.blogs">
-      <a href="{{ blog.link }}" target="_blank">
+      <a href="{{ blog.url }}" target="_blank">
         <div class="card-content">
+          <img src="{{ blog.image }}" alt="{{ blog.title }} Thumbnail" class="thumbnail blog-thumbnail">
           <h5>{{ blog.title }}</h5>
           <p>{{ blog.description }}</p> 
         </div>
@@ -51,4 +52,5 @@
     </div>
   </div>
 </div>
+
 <hr>
