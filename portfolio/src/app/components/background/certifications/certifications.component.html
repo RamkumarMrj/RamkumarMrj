@@ -2,7 +2,7 @@
   <h3><mat-icon svgIcon="certificates" aria-hidden="false" aria-label="certificates"></mat-icon>&nbsp;&nbsp;&nbsp;Certifications</h3>
   <ul *ngFor="let cert of data.certifications">
     <li>
-      <p class="tags">{{cert.name}}<a href="#" target="_blank">
+      <p class="tags">{{ cert.name }}<a href="{{ cert.url }}" target="_blank">
         <mat-icon svgIcon="open-link"></mat-icon></a><br><span>{{ cert.issuer }} |
           <span>{{ cert.startDate | date: "MMMM YYYY" }}</span></span></p>
     </li>
