@@ -2,9 +2,162 @@
 <div id="inner-nav"></div>
 <div id="container">
   <div id="profile">
-    <app-profile></app-profile>
-    <!-- <app-temp></app-temp> -->
+    <div id="image" *ngIf="data && data.basics && data.basics.profiles">
+      <img id="profile-photo" src="{{data?.basics?.image || 'Not found'}}" alt="Profile-Image">
+    </div>
+    <p id="name">{{data?.basics?.name || 'Not found'}}<br><span id="email">{{data?.basics?.email || 'Not found'}}</span></p>
+    <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="light" data-type="HORIZONTAL"
+      data-vanity="ramkumarmrj" data-version="v1"><a class="badge-base__link LI-simple-link"
+        href="https://in.linkedin.com/in/ramkumarmrj?trk=profile-badge"></a></div>
+
+    <hr width="100%">
+    <div id="profile-about">
+      <h4 style="display:inline;">About</h4>
+    </div>
+    <p id="year-graduation">Year of Graduation<br><strong>{{ (data?.education[0]?.endDate | date:'MMMM yyyy') || 'Not found'
+        }}</strong></p>
+    <p id="education">Education<br><strong>{{data?.education[0]?.studyType || 'Not found'}} |
+        {{data?.education[0]?.institution || 'Not found'}}, {{data?.education[0]?.place || 'Not found'}}</strong></p>
+    <p id="more-about">More about me<br><span>{{data?.education[0]?.area || 'Not found'}}</span></p>
+    <p id="telephone">Phone<br><strong>{{data?.basics?.phone || 'Not found'}}</strong></p>
+    <hr>
+    <div id="social-links" *ngFor="let profile of data?.basics.profiles">
+      <a [href]="profile.url" target="_blank">
+        <mat-icon [svgIcon]="profile.network.toLowerCase()" aria-hidden="false">{{profile.network}}</mat-icon>
+      </a>
+    </div>
+    <hr>
+    <p class="tags">
+      <a href="assets/data/Ramkumar_Murthy_Jan_2024___CV.pdf" download="Ramkumar Murthy.pdf">Download CV
+        <mat-icon svgIcon="download"></mat-icon>
+      </a><br><br>
+      <a href="assets/data/Ramkumar_Murthy_Jan_2024___CV.pdf" target="_blank">View CV <mat-icon
+          svgIcon="open-link"></mat-icon></a>
+    </p>
+    <hr>
+    <div id="profile-languages">
+      <h6 style="display:inline;">Languages</h6>
+      <ul *ngFor="let lang of data?.languages">
+        <li id="languages">{{lang.language}} - <em>{{lang.fluency}}</em></li>
+      </ul>
+      <p><span id="college">{{data?.basics.location.city}}, {{data?.basics.location.region}},
+          {{data?.basics.location.countryCode}}</span></p>
+    </div>
+    <hr>
+    <div id="blogs">
+      <h2 style="display:inline;">Blogs</h2>
+      <p></p>
+      <div class="card-container" *ngIf="data">
+        <div class="card" *ngFor="let blog of data.blogs">
+          <a href="{{ blog.url }}" target="_blank">
+            <div class="card-content">
+              <img src="{{ blog.image }}" alt="{{ blog.title }} Thumbnail" class="thumbnail blog-thumbnail">
+              <h5>{{ blog.title }}</h5>
+              <p>{{ blog.description }}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr>
   </div>
   <!-- Background -->
-  <app-background></app-background>
+  <div id="info-cards">
+    <div class="card">
+      <h3><mat-icon svgIcon="about" aria-hidden="false" aria-label="about"></mat-icon>&nbsp;&nbsp;&nbsp;About</h3>
+      <p>{{data?.basics?.summary}}</p>
+    </div>
+
+    <!-- Work Experience -->
+    <div class="card">
+      <h3><mat-icon svgIcon="work" aria-hidden="false" aria-label="work"></mat-icon>&nbsp;&nbsp;&nbsp;Work Experience</h3>
+      <ul *ngFor="let exp of data?.work">
+        <hr>
+        <li>
+          <p class="tags">
+            <a href="{{ exp.url }}" target="_blank">{{exp.position}} <mat-icon svgIcon="open-link" aria-hidden="false"
+                aria-label="open-link"></mat-icon></a> | <span>{{exp.company}}</span><br>
+            <span>{{exp.location}} | <span>{{exp.startDate | date: "MMMM YYYY"}} - {{exp.endDate | date: "MMMM
+                YYYY"}}</span></span>
+          </p>
+          <p>{{exp.summary}}</p>
+          <p><b><em>Highlights:</em></b></p>
+          <ul *ngFor="let highlight of exp.highlights">
+            <li>{{highlight}}</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Projects -->
+    <div class="card">
+      <h3><mat-icon svgIcon="projects" aria-hidden="false" aria-label="projects"></mat-icon>&nbsp;&nbsp;&nbsp;Projects
+        Experience</h3>
+      <ul *ngFor="let project of data?.projects">
+        <li>
+          <p class="tags">
+            <a href="{{ project.url }}" target="_blank">{{project.name}}
+              <mat-icon svgIcon="open-link" aria-hidden="false" aria-label="open-link"></mat-icon>
+            </a>
+            <span><span> | {{ project.startDate | date: "MMMM YYYY" }} - {{ project.endDate | date: "MMMM YYYY" }}</span></span>
+          </p>
+          <a class="edit" href="#"><i class="fas fa-pen stroke-transparent-blue"></i></a>
+          <ul>
+            <li>{{project.description}}</li>
+            <li><b>Stack Used:</b> {{ project.stack.join(', ') }}</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Skills -->
+    <div class="card">
+      <h3><mat-icon svgIcon="skills" aria-hidden="false" aria-label="skills"></mat-icon>&nbsp;&nbsp;&nbsp;Skills</h3>
+      <ul *ngFor="let skill of data?.skills">
+        <li>
+          <p class="tags">{{skill.name}}</p>
+          <ul>
+            <li>{{ skill.keywords.join(',  ') }}</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Certifications -->
+    <div class="card">
+      <h3><mat-icon svgIcon="certificates" aria-hidden="false"
+          aria-label="certificates"></mat-icon>&nbsp;&nbsp;&nbsp;Certifications</h3>
+      <ul *ngFor="let cert of data?.certifications">
+        <li>
+          <p class="tags">{{ cert.name }}<a href="{{ cert.url }}" target="_blank">
+              <mat-icon svgIcon="open-link"></mat-icon></a><br><span>{{ cert.issuer }} |
+              <span>{{ cert.startDate | date: "MMMM YYYY" }}</span></span></p>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Education -->
+    <div class="card">
+      <h3><mat-icon svgIcon="education" aria-hidden="false" aria-label="education"></mat-icon>&nbsp;&nbsp;&nbsp;Education
+      </h3>
+      <ul *ngFor="let edu of data?.education">
+        <li>
+          <p class="tags">{{ edu.studyType }} - {{ edu.area }}<br><span> {{ edu.institution }}, {{ edu.place }} | <span>{{
+                edu.endDate | date: "MMMM YYYY" }}</span></span></p>
+        </li>
+      </ul>
+    </div>
+
+    <!-- References -->
+    <div class="card">
+      <h3><mat-icon svgIcon="references" aria-hidden="false"
+          aria-label="references"></mat-icon>&nbsp;&nbsp;&nbsp;References</h3>
+      <ul *ngFor="let ref of data?.references">
+        <li>
+          <p class="tags">{{ref.name}}</p>
+          <em>"{{ref.reference}}"</em>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
