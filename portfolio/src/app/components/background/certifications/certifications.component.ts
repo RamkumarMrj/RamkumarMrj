@@ -4,9 +4,10 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { DataSourceService } from '../../../services/data-source.service';
 
 @Component({
-  selector: 'app-certifications',
-  templateUrl: './certifications.component.html',
-  styleUrl: './certifications.component.css'
+    selector: 'app-certifications',
+    templateUrl: './certifications.component.html',
+    styleUrl: './certifications.component.css',
+    standalone: false
 })
 export class CertificationsComponent implements OnInit {
 

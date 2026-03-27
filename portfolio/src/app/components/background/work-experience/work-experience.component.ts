@@ -4,9 +4,10 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { DataSourceService } from '../../../services/data-source.service';
 
 @Component({
-  selector: 'app-work-experience',
-  templateUrl: './work-experience.component.html',
-  styleUrl: './work-experience.component.css'
+    selector: 'app-work-experience',
+    templateUrl: './work-experience.component.html',
+    styleUrl: './work-experience.component.css',
+    standalone: false
 })
 export class WorkExperienceComponent implements OnInit {
 

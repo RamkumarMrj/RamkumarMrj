@@ -4,9 +4,10 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { DataSourceService } from '../../../services/data-source.service';
 
 @Component({
-  selector: 'app-references',
-  templateUrl: './references.component.html',
-  styleUrl: './references.component.css'
+    selector: 'app-references',
+    templateUrl: './references.component.html',
+    styleUrl: './references.component.css',
+    standalone: false
 })
 export class ReferencesComponent implements OnInit {
 

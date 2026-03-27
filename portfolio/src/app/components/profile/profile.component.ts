@@ -5,9 +5,10 @@ import { DataSourceService } from '../../services/data-source.service';
 import { APP_BASE_HREF } from '@angular/common';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrl: './profile.component.css'
+    selector: 'app-profile',
+    templateUrl: './profile.component.html',
+    styleUrl: './profile.component.css',
+    standalone: false
 })
 export class ProfileComponent implements OnInit {
 

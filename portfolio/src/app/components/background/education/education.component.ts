@@ -4,9 +4,10 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { DataSourceService } from '../../../services/data-source.service';
 
 @Component({
-  selector: 'app-education',
-  templateUrl: './education.component.html',
-  styleUrl: './education.component.css'
+    selector: 'app-education',
+    templateUrl: './education.component.html',
+    styleUrl: './education.component.css',
+    standalone: false
 })
 export class EducationComponent implements OnInit {
 

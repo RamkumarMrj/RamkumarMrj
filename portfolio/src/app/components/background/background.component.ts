@@ -4,9 +4,10 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { DataSourceService } from '../../services/data-source.service';
 
 @Component({
-  selector: 'app-background',
-  templateUrl: './background.component.html',
-  styleUrl: './background.component.css'
+    selector: 'app-background',
+    templateUrl: './background.component.html',
+    styleUrl: './background.component.css',
+    standalone: false
 })
 export class BackgroundComponent implements OnInit {
 
