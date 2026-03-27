@@ -21,8 +21,8 @@
     "profiles": [
       {
         "network": "LinkedIn",
-        "username": "RamkumaMrj",
-        "url": "https://www.linkedin.com/in/RamkumaMrj"
+        "username": "RamkumarMrj",
+        "url": "https://www.linkedin.com/in/RamkumarMrj"
       },
       {
         "network": "GitHub",
@@ -31,22 +31,22 @@
       },
       {
         "network": "Medium",
-        "username": "RamkumaMrj",
-        "url": "https://www.medium.com/@RamkumaMrj"
+        "username": "RamkumarMrj",
+        "url": "https://www.medium.com/@RamkumarMrj"
       },
       {
         "network": "Dev.to",
-        "username": "RamkumaMrj",
-        "url": "https://www.dev.to/@RamkumaMrj"
+        "username": "RamkumarMrj",
+        "url": "https://www.dev.to/@RamkumarMrj"
       },
       {
         "network": "Stackoverflow",
-        "username": "RamkumaMrj",
+        "username": "RamkumarMrj",
         "url": "https://stackoverflow.com/users/13523132/ramkumar"
       },
       {
         "network": "Twitter",
-        "username": "RamkumaMrj",
+        "username": "RamkumarMrj",
         "url": "https://x.com/ramkumarmrj/"
       },
       {
@@ -56,22 +56,34 @@
       },
       {
         "network": "Pinterest",
-        "username": "RamkumaMrj",
+        "username": "RamkumarMrj",
         "url": "https://in.pinterest.com/ramkumarmrj/"
       },
       {
         "network": "Facebook",
-        "username": "RamkumaMrj",
+        "username": "RamkumarMrj",
         "url": "https://www.facebook.com/RamkumarMrj"
       }
     ]
   },
   "work": [
     {
+      "company": "Outlier.ai",
+      "url": "https://outlier.ai",
+      "location": "Bengaluru, Karnataka, India",
+      "position": "Software Developer",
+      "startDate": "2024-09-01",
+      "endDate": "",
+      "summary": "Software Developer Expertise for AI Training - Freelancer",
+      "highlights": [
+        "Trained generative AI models (LLM) by crafting and evaluating complex computer science questions and Python code, providing expert feedback to enhance AI coding accuracy and performance."
+      ]
+    },
+    {
       "company": "Cisco Systems India Pvt.Ltd",
       "url": "https://drive.google.com/file/d/1Uam2nb5u81IyN1xS9UbsSm6FXsAB4JIN/view",
       "location": "Bengaluru, Karnataka, India",
-      "position": "Software Engineer Apprentice",
+      "position": "Software Engineer Trainee",
       "startDate": "2022-10-31",
       "endDate": "2023-10-30",
       "summary": "Highly motivated and adaptable technical professional with a strong foundation in full-stack development and a passion for continuous learning. Proven ability to quickly grasp new technologies and contribute to projects involving dashboard development, process optimization, and software development.",
@@ -176,7 +188,8 @@
       "keywords": [
         "MongoDB",
         "MySQL",
-        "PostgreSQL"
+        "PostgreSQL",
+        "Oracle SQL"
       ]
     },
     {
@@ -226,7 +239,7 @@
       "description": "Created a search engine using Python and Django to facilitate quick and accurate retrieval of relevant IPC sections for legal research.",
       "startDate": "2021-02-01",
       "endDate": "2021-04-01",
-      "url": null,
+      "url": "https://ipc.pythonanywhere.com/",
       "stack": [
         "Python",
         "Flask",
@@ -407,6 +420,32 @@
     {
       "name": "BHUVANESH MUTHUSAMY",
       "reference": "I wholeheartedly recommend Ramkumar as a highly proficient Python expert with exceptional problem-solving skills. His valuable contributions have greatly benefited our team, and his dedication to tackling complex challenges is truly commendable."
+    }
+  ],
+  "blogs": [
+    {
+      "image": "https://miro.medium.com/v2/resize:fit:640/format:webp/1*uRYdzuD1i8lKllyVNHhv5Q.jpeg",
+      "title": "Building the Foundations of Programming: Linked Lists (Continued)",
+      "url": "https://medium.com/@RamkumarMrj/building-the-foundations-of-programming-linked-lists-7641d6b97cfc",
+      "description": "DSA, let's delve deeper into a specific type: linked lists."
+    },
+    {
+      "image": "https://miro.medium.com/v2/resize:fit:640/format:webp/1*OKm8en6ryZPyiur-oTKtMw.png",
+      "title": "Building the Foundations of Programming: Introduction to Data Structures and Algorithms",
+      "url": "https://medium.com/@RamkumarMrj/building-the-foundations-of-programming-67432293d0d0",
+      "description": "Introduction to Data Structures and Algorithms"
+    },
+    {
+      "image": "https://miro.medium.com/v2/resize:fit:640/format:webp/1*s1C-RKi_OfXiQ2hOtkEieg.png",
+      "title": "Dockerizing Front End as Angular and Back End as Flask",
+      "url": "https://medium.com/@RamkumarMrj/dockerizing-front-end-as-angular-and-back-end-as-flask-1e944a0ed77",
+      "description": "Expert in dockerizing."
+    },
+    {
+      "image": "https://miro.medium.com/v2/resize:fit:640/format:webp/1*buBntGkOMwBruLcrH5fVPg.jpeg",
+      "title": "Create an EC2 M1 Mac instances for macOS",
+      "url": "https://medium.com/@RamkumarMrj/create-ec2-m1-mac-instances-for-macos-1cb9ea962b18",
+      "description": "EC2 M1 Mac instances are now generally available! - announcement from AWS EC2 Mac Team."
     }
   ]
 }

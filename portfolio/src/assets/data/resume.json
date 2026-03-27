@@ -162,21 +162,21 @@
         "CSS3",
         "ReactJS",
         "Bootstrap",
-        "AngularJS*",
-        "Flutter*",
-        "Material-UI*"
+        "AngularJS",
+        "Flutter",
+        "Material-UI"
       ]
     },
     {
       "name": "Backend Development",
       "level": "Expert",
       "keywords": [
-        "Python*",
-        "Flask*",
+        "Python",
+        "Flask",
         "Django",
         "Java",
         "Spring Boot",
-        "RESTful APIs*",
+        "RESTful APIs",
         "C/C++",
         "C#",
         "ASP.net"
