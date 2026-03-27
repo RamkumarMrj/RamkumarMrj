@@ -8,7 +8,7 @@
 <div id="about">
   <h4 style="display:inline;">About</h4>
 </div>
-<p id="year-graduation">Year of Graduation<br><strong>{{data?.education[0]?.endDate | date:'MMMM yyyy' || 'Not found'}}</strong></p>
+<p id="year-graduation">Year of Graduation<br><strong>{{ (data?.education[0]?.endDate | date:'MMMM yyyy') || 'Not found' }}</strong></p>
 <p id="education">Education<br><strong>{{data?.education[0]?.studyType || 'Not found'}} |
     {{data?.education[0]?.institution || 'Not found'}}, {{data?.education[0]?.place || 'Not found'}}</strong></p>
 <p id="more-about">More about me<br><span>{{data?.education[0]?.area || 'Not found'}}</span></p>
