@@ -31,11 +31,11 @@ export class AppComponent implements OnInit {
     this.getResume();
     this.loadBlogPosts();
     
-    // Check for saved theme preference or system preference
+    // Only use dark mode if explicitly saved as 'dark'
     if (typeof window !== 'undefined') {
       try {
         const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        if (savedTheme === 'dark') {
           this.setDarkMode(true);
         }
       } catch (e) {
