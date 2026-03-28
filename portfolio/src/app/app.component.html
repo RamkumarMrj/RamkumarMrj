@@ -29,7 +29,7 @@
                 class="material-symbols-outlined font-bold hover:scale-110 transition-transform">hub</a>
             <button (click)="toggleDarkMode()"
                 class="material-symbols-outlined font-bold hover:rotate-12 transition-transform">
-                {{ isDarkMode ? 'light_mode' : 'terminal' }}
+                {{ isDarkMode ? 'terminal' : 'terminal' }}
             </button>
         </div>
     </header>
@@ -53,7 +53,7 @@
                     <div class="flex gap-6">
                         <span class="text-on-surface-variant/20 shrink-0 font-medium">01_</span>
                         <p class="text-2xl md:text-4xl"><span class="syntax-keyword">INIT</span>&nbsp;<span
-                                class="syntax-key">engineer</span> <span class="syntax-key">{{ '{' }}</span><span
+                                class="syntax-key">engineer </span> <span class="syntax-key">{{ '{' }}</span><span
                                 class="terminal-cursor"></span></p>
                     </div>
                     <div class="flex gap-6 pl-8">
@@ -113,7 +113,7 @@
                         "{{ data.basics?.summary }}"
                     </p>
                 </div>
-                <div class="themed-border p-6 bg-surface-container-low">
+                <div class="themed-border p-6 bg-surface-container-low self-start">
                     <h4 class="font-label text-xs font-bold uppercase mb-4 text-on-surface/40">STATISTICS</h4>
                     <div class="space-y-4 font-label">
                         <div class="flex justify-between">
