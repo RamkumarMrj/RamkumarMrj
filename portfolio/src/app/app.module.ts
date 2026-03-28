@@ -3,7 +3,7 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 import { APP_BASE_HREF } from '@angular/common';
 
@@ -20,7 +20,7 @@ import { APP_BASE_HREF } from '@angular/common';
     providers: [
         provideClientHydration(),
         { provide: APP_BASE_HREF, useValue: '/' },
-        provideHttpClient(withInterceptorsFromDi())
+        provideHttpClient(withFetch(), withInterceptorsFromDi())
     ]
 })
 export class AppModule { }

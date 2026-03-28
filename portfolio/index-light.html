@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Ramkumar Murthy - Full Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&amp;family=Archivo+Narrow:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-bright": "#fefcf4",
+                        "outline": "#808273",
+                        "error-container": "#fe8b70",
+                        "primary-dim": "#4e5358",
+                        "background": "#FFFDF5",
+                        "secondary-fixed": "#E6D44D",
+                        "on-primary-fixed-variant": "#575c62",
+                        "secondary-container": "#E6D44D",
+                        "on-surface-variant": "#636658",
+                        "on-tertiary-fixed-variant": "#57606a",
+                        "surface-container-highest": "#e8ead8",
+                        "tertiary-dim": "#505963",
+                        "on-secondary-fixed-variant": "#665c00",
+                        "on-secondary-fixed": "#474000",
+                        "tertiary": "#5c656f",
+                        "surface-tint": "#5a5f65",
+                        "secondary-dim": "#635900",
+                        "inverse-surface": "#0e0f0a",
+                        "surface-container": "#f5f4e8",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-variant": "#e8ead8",
+                        "primary-fixed": "#dee3e9",
+                        "surface-container-high": "#eeefe0",
+                        "on-surface": "#36392d",
+                        "tertiary-fixed-dim": "#d2dbe6",
+                        "on-primary-fixed": "#3b4045",
+                        "error": "#a54731",
+                        "error-dim": "#5c1202",
+                        "on-error-container": "#742410",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#e2e4d0",
+                        "on-error": "#ffffff",
+                        "surface-container-low": "#fbfaef",
+                        "secondary": "#706500",
+                        "on-primary-container": "#4d5258",
+                        "surface": "#FFFDF5",
+                        "primary-fixed-dim": "#d0d5db",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#5c5200",
+                        "tertiary-fixed": "#e0e9f5",
+                        "on-background": "#36392d",
+                        "on-tertiary-container": "#4d565f",
+                        "primary-container": "#dee3e9",
+                        "secondary-fixed-dim": "#e8d64f",
+                        "inverse-on-surface": "#9e9d96",
+                        "tertiary-container": "#e0e9f5",
+                        "on-tertiary-fixed": "#3b444d",
+                        "inverse-primary": "#f0f4fb",
+                        "outline-variant": "#b9bbaa",
+                        "primary": "#5a5f65",
+                        "on-primary": "#f4f8ff"
+                    },
+                    fontFamily: {
+                        "headline": ["IBM Plex Mono", "monospace"],
+                        "body": ["Archivo Narrow", "sans-serif"],
+                        "label": ["IBM Plex Mono", "monospace"]
+                    },
+                    borderRadius: { "DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "0px" },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .ghost-border {
+            border: 1px solid rgba(185, 187, 170, 0.4);
+        }
+        .syntax-keyword { color: #706500; font-weight: 700; }
+        .syntax-string { color: #5a5f65; }
+        .syntax-key { color: #36392d; font-weight: 700; }
+        body { cursor: crosshair; }
+        h1, h2, h3, h4 { text-transform: uppercase; letter-spacing: -0.02em; }
+        .dashed-border { border-style: dashed; }
+    </style>
+    <style>
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .terminal-cursor {
+            display: inline-block;
+            width: 12px;
+            height: 1em;
+            background-color: #706500;
+            margin-left: 8px;
+            vertical-align: middle;
+            animation: blink 1s step-end infinite;
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-surface font-body selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+    <header
+        class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 max-w-full bg-background border-b-2 border-[#36392d]">
+        <div class="flex items-center gap-4">
+            <img alt="Ramkumar Murthy" class="w-10 h-10 border-2 border-[#36392d] object-cover"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXHIS680higDSdDVBfgaZwl3mBCcWl-phQ5Gtz6zw0VQ0fxdww9p9ypuSd1fRrXaoG0kMqG5H0ZjKPq0ljPoso2e_t1m2gJXtjzW-Nnys9lyyeLd2s3_Tqc4ErNZo7pDjC5p5jdU7ZJQuhg9rLZ3oy3IFxt9mJTMp2o3or3uNU07CUJ4YUD6xgCauwIu5gT5xLXQpItSpdwIufrXFDzqi5jkeKzdTP442ERG03cdr_NLEvvuCA9Hk8MGtrimATuNrPMmPae7gu1jXl" />
+            <div class="text-lg font-headline font-bold text-[#36392d]">
+                &gt; RAMKUMAR_MURTHY
+            </div>
+        </div>
+        <nav class="hidden md:flex items-center gap-6">
+            <a class="text-[#636658] font-bold hover:text-[#706500] transition-colors duration-150 font-label text-[11px] uppercase tracking-tighter"
+                href="#about">[ ABOUT ]</a>
+            <a class="text-[#636658] font-bold hover:text-[#706500] transition-colors duration-150 font-label text-[11px] uppercase tracking-tighter"
+                href="#work">[ WORK ]</a>
+            <a class="text-[#636658] font-bold hover:text-[#706500] transition-colors duration-150 font-label text-[11px] uppercase tracking-tighter"
+                href="#projects">[ PROJECTS ]</a>
+            <a class="text-[#636658] font-bold hover:text-[#706500] transition-colors duration-150 font-label text-[11px] uppercase tracking-tighter"
+                href="#skills">[ SKILLS ]</a>
+            <a class="text-[#636658] font-bold hover:text-[#706500] transition-colors duration-150 font-label text-[11px] uppercase tracking-tighter"
+                href="#contact">[ CONTACT ]</a>
+        </nav>
+        <div class="flex items-center gap-4 text-[#706500]">
+            <a class="material-symbols-outlined font-bold hover:scale-110 transition-transform" data-icon="hub"
+                href="https://linkedin.com/in/ramkumar-murthy" target="_blank">hub</a>
+            <span class="material-symbols-outlined font-bold" data-icon="terminal">terminal</span>
+        </div>
+    </header>
+    <main class="pt-24 pb-12 px-6 max-w-6xl mx-auto">
+        <!-- Hero JSON -->
+        <section class="mb-24 mt-12">
+            <div
+                class="border-2 border-[#36392d] bg-surface-container-low p-8 md:p-12 font-label leading-relaxed relative overflow-hidden md:text-xl">
+                <div class="absolute top-0 right-0 w-full md:w-1/2 h-full z-0 pointer-events-none"
+                    style="mask-image: linear-gradient(to right, transparent, black); -webkit-mask-image: linear-gradient(to right, transparent, black);">
+                    <img alt="Technology Background" class="w-full h-full object-cover opacity-30 grayscale"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4qi8TuP37SaRK0EGZ5QgI6QZm7Kp2ZMCvcZGmt8gqA9y4rTTcuQRhfpT8YNXNVOWViWvVnaFWiNJYfLjU7XPcuDlnBUvnmGdKlJnkqVA89Ub5PhgoqFrG-4eXNbY8qOV5g2zRyyu0GVXgDqU--IVEPr4UdCoL41L7HhB6KI_lomfOy_e0_rkT-M7fNrECFWbaXq-y5lKbG5_XI0tfzkHMi-2-gV-Yg9tmYj5ESIwAbLxOreqWvlhLLBTiyGeEHhIcifuQ7rZ1KmY7" />
+                </div>
+                <div class="absolute top-0 right-0 p-4 opacity-5 select-none pointer-events-none">
+                    <span class="material-symbols-outlined text-[12rem]" data-icon="code">code</span>
+                </div>
+                <div class="space-y-1 relative z-10">
+                    <div class="flex gap-6">
+                        <span class="text-on-surface-variant/40 shrink-0 font-bold">01_</span>
+                        <p class="text-2xl md:text-4xl"><span class="syntax-keyword">INIT</span> <span
+                                class="syntax-key">engineer</span> {<span class="terminal-cursor"></span></p>
+                    </div>
+                    <div class="flex gap-6 pl-8">
+                        <span class="text-on-surface-variant/40 shrink-0 font-bold">02_</span>
+                        <p><span class="syntax-key">"NAME"</span>: <span class="syntax-string">"Ramkumar Murthy"</span>,
+                        </p>
+                    </div>
+                    <div class="flex gap-6 pl-8">
+                        <span class="text-on-surface-variant/40 shrink-0 font-bold">03_</span>
+                        <p><span class="syntax-key">"ROLE"</span>: <span class="syntax-string">"Full Stack Web
+                                Developer"</span>,</p>
+                    </div>
+                    <div class="flex gap-6 pl-8">
+                        <span class="text-on-surface-variant/40 shrink-0 font-bold">04_</span>
+                        <p><span class="syntax-key">"SITE"</span>: <span
+                                class="syntax-string">"https://ramkumarmurthy.com"</span>,</p>
+                    </div>
+                    <div class="flex gap-6 pl-8">
+                        <span class="text-on-surface-variant/40 shrink-0 font-bold">05_</span>
+                        <p><span class="syntax-key">"EMAIL"</span>: <span
+                                class="syntax-string">"ramkumar@example.com"</span>,</p>
+                    </div>
+                    <div class="flex gap-6 pl-8">
+                        <span class="text-on-surface-variant/40 shrink-0 font-bold">06_</span>
+                        <p><span class="syntax-key">"LOC"</span>: <span class="syntax-string">"Coimbatore, India"</span>
+                        </p>
+                    </div>
+                    <div class="flex gap-6">
+                        <span class="text-on-surface-variant/40 shrink-0 font-bold">07_</span>
+                        <p>};</p>
+                    </div>
+                </div>
+                <div class="mt-12 flex items-center gap-6 relative z-10">
+                    <a class="bg-on-surface text-background px-6 py-3 font-label text-sm uppercase font-bold tracking-tight hover:bg-secondary-fixed hover:text-on-secondary-fixed transition-colors"
+                        href="https://github.com/ramkumar" target="_blank">
+                        GIT: FETCH_PROFILE
+                    </a>
+                    <a class="font-label text-xs uppercase font-bold tracking-tight border-b-2 border-secondary-fixed hover:text-secondary transition-colors"
+                        href="#contact">
+                        _PING_ME
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- About Section -->
+        <section class="mb-24" id="about">
+            <div class="flex items-baseline gap-4 mb-10 border-b-2 border-on-surface/10 pb-4">
+                <h2 class="font-headline font-bold text-5xl tracking-tighter">SUMMARY</h2>
+                <span class="font-label text-sm text-on-surface-variant/60">SYS://PROFILE_INFO</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="md:col-span-2">
+                    <p class="text-xl md:text-2xl font-body leading-relaxed text-on-surface-variant italic">
+                        "I am an enthusiastic Full Stack Web Developer based in Coimbatore, India. I am committed to
+                        continuous learning and staying updated with the latest industry trends, always eager to take on
+                        new challenges and contribute to impactful projects."
+                    </p>
+                </div>
+                <div class="border-2 border-[#36392d] p-6 bg-surface-container-low">
+                    <h4 class="font-label text-xs font-bold uppercase mb-4 text-on-surface/40">STATISTICS</h4>
+                    <div class="space-y-4 font-label">
+                        <div class="flex justify-between">
+                            <span class="text-xs">STATUS</span>
+                            <span class="text-xs font-bold text-secondary">READY_TO_DEPLOY</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-xs">EXPERIENCE</span>
+                            <span class="text-xs font-bold">2+ YEARS</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-xs">TIMEZONE</span>
+                            <span class="text-xs font-bold">IST (GMT+5:30)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Work Experience -->
+        <section class="mb-24" id="work">
+            <div class="flex items-baseline gap-4 mb-10 border-b-2 border-on-surface/10 pb-4">
+                <h2 class="font-headline font-bold text-5xl tracking-tighter">EXPERIENCE</h2>
+                <span class="font-label text-sm text-on-surface-variant/60">LOG://CAREER_TIMELINE</span>
+            </div>
+            <div class="space-y-12">
+                <!-- Role 1 -->
+                <div class="relative pl-8 md:pl-12 border-l-2 border-on-surface/10">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 bg-on-surface border-2 border-background"></div>
+                    <div class="flex flex-col md:flex-row md:items-baseline justify-between mb-4 gap-2">
+                        <div>
+                            <h3 class="font-headline font-bold text-2xl uppercase">Full Stack Developer Intern</h3>
+                            <div class="font-label font-bold text-secondary-dim">ZOHO CORPORATION</div>
+                        </div>
+                        <div
+                            class="font-label text-sm font-bold bg-surface-container px-3 py-1 border border-on-surface/10">
+                            DEC 2023 - PRESENT
+                        </div>
+                    </div>
+                    <ul class="space-y-3 max-w-3xl">
+                        <li class="flex gap-3">
+                            <span class="text-secondary font-bold font-label">&gt;&gt;</span>
+                            <p class="text-on-surface-variant">Developed and optimized web applications using Zoho's
+                                proprietary internal frameworks and modern web technologies.</p>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-secondary font-bold font-label">&gt;&gt;</span>
+                            <p class="text-on-surface-variant">Collaborated with cross-functional teams to implement
+                                scalable backend solutions and responsive frontend interfaces.</p>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-secondary font-bold font-label">&gt;&gt;</span>
+                            <p class="text-on-surface-variant">Participated in code reviews and agile sprints to ensure
+                                high-quality software delivery and architectural integrity.</p>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Role 2 -->
+                <div class="relative pl-8 md:pl-12 border-l-2 border-on-surface/10">
+                    <div class="absolute -left-[9px] top-0 w-4 h-4 bg-on-surface/20 border-2 border-background"></div>
+                    <div class="flex flex-col md:flex-row md:items-baseline justify-between mb-4 gap-2">
+                        <div>
+                            <h3 class="font-headline font-bold text-2xl uppercase">Web Development Trainee</h3>
+                            <div class="font-label font-bold text-secondary-dim">TECH_ACADEMY_PRO</div>
+                        </div>
+                        <div
+                            class="font-label text-sm font-bold bg-surface-container px-3 py-1 border border-on-surface/10">
+                            JUNE 2023 - NOV 2023
+                        </div>
+                    </div>
+                    <ul class="space-y-3 max-w-3xl">
+                        <li class="flex gap-3">
+                            <span class="text-secondary font-bold font-label">&gt;&gt;</span>
+                            <p class="text-on-surface-variant">Mastered the MERN stack through hands-on development of
+                                production-ready applications.</p>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-secondary font-bold font-label">&gt;&gt;</span>
+                            <p class="text-on-surface-variant">Implemented RESTful APIs and integrated various
+                                third-party services for enhanced functionality.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- Projects -->
+        <section class="mb-24" id="projects">
+            <div class="flex items-baseline gap-4 mb-10 border-b-2 border-on-surface/10 pb-4">
+                <h2 class="font-headline font-bold text-5xl tracking-tighter">PROJECTS</h2>
+                <span class="font-label text-sm text-on-surface-variant/60">FILE://WORK_HISTORY</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#36392d] border-2 border-[#36392d]">
+                <div
+                    class="bg-background p-8 group hover:bg-surface-container-low transition-colors flex flex-col justify-between min-h-[320px]">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="font-label text-xs font-bold text-on-surface-variant/60">[ 0x01 ]</span>
+                            <a class="material-symbols-outlined font-bold text-on-surface-variant group-hover:text-secondary transition-colors"
+                                data-icon="open_in_new" href="#">open_in_new</a>
+                        </div>
+                        <h3 class="font-headline font-bold text-2xl mb-4">Neural_Archive</h3>
+                        <p class="text-on-surface-variant text-base mb-8 leading-tight max-w-sm">
+                            A distributed knowledge base using vector embeddings for semantic search and retrieval.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="font-label text-[11px] font-bold border border-outline-variant px-2 py-0.5 text-on-surface-variant uppercase">TypeScript</span>
+                        <span
+                            class="font-label text-[11px] font-bold border border-outline-variant px-2 py-0.5 text-on-surface-variant uppercase">Python</span>
+                        <span
+                            class="font-label text-[11px] font-bold border border-outline-variant px-2 py-0.5 text-on-surface-variant uppercase">PostgreSQL</span>
+                    </div>
+                </div>
+                <div
+                    class="bg-background p-8 group hover:bg-surface-container-low transition-colors flex flex-col justify-between min-h-[320px]">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="font-label text-xs font-bold text-on-surface-variant/60">[ 0x02 ]</span>
+                            <a class="material-symbols-outlined font-bold text-on-surface-variant group-hover:text-secondary transition-colors"
+                                data-icon="open_in_new" href="#">open_in_new</a>
+                        </div>
+                        <h3 class="font-headline font-bold text-2xl mb-4">Flux_Engine</h3>
+                        <p class="text-on-surface-variant text-base mb-8 leading-tight max-w-sm">
+                            Real-time visualization engine for high-frequency financial data streams and telemetry.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="font-label text-[11px] font-bold border border-outline-variant px-2 py-0.5 text-on-surface-variant uppercase">React</span>
+                        <span
+                            class="font-label text-[11px] font-bold border border-outline-variant px-2 py-0.5 text-on-surface-variant uppercase">Rust</span>
+                        <span
+                            class="font-label text-[11px] font-bold border border-outline-variant px-2 py-0.5 text-on-surface-variant uppercase">WebAssembly</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Skills -->
+        <section class="mb-24" id="skills">
+            <div class="flex items-baseline gap-4 mb-10 border-b-2 border-on-surface/10 pb-4">
+                <h2 class="font-headline font-bold text-5xl tracking-tighter">SKILLS</h2>
+                <span class="font-label text-sm text-on-surface-variant/60">BIN://TECH_STACK</span>
+            </div>
+            <div class="border-2 border-[#36392d] p-8 bg-surface-container-low">
+                <div class="flex flex-wrap gap-x-12 gap-y-12">
+                    <div>
+                        <h4 class="font-label text-[12px] font-bold uppercase tracking-tight text-on-surface/40 mb-4">
+                            &gt; FRONTEND</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="font-label text-sm font-bold text-secondary">[ REACT ]</span>
+                            <span class="font-label text-sm font-bold text-secondary">[ NEXT.JS ]</span>
+                            <span class="font-label text-sm font-bold text-secondary">[ TAILWINDCSS ]</span>
+                            <span class="font-label text-sm font-bold text-secondary">[ TYPESCRIPT ]</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-label text-[12px] font-bold uppercase tracking-tight text-on-surface/40 mb-4">
+                            &gt; BACKEND</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="font-label text-sm font-bold text-secondary">[ NODE.JS ]</span>
+                            <span class="font-label text-sm font-bold text-secondary">[ EXPRESS ]</span>
+                            <span class="font-label text-sm font-bold text-secondary">[ PYTHON ]</span>
+                            <span class="font-label text-sm font-bold text-secondary">[ POSTGRESQL ]</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-label text-[12px] font-bold uppercase tracking-tight text-on-surface/40 mb-4">
+                            &gt; TOOLS</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="font-label text-sm font-bold text-secondary">[ GIT ]</span>
+                            <span class="font-label text-sm font-bold text-secondary">[ DOCKER ]</span>
+                            <span class="font-label text-sm font-bold text-secondary">[ AWS ]</span>
+                            <span class="font-label text-sm font-bold text-secondary">[ ZOHO_CLI ]</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Education & Certs -->
+        <section class="mb-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Education -->
+                <div>
+                    <div class="flex items-baseline gap-4 mb-8 border-b-2 border-on-surface/10 pb-2">
+                        <h2 class="font-headline font-bold text-3xl tracking-tighter">EDUCATION</h2>
+                        <span class="font-label text-[10px] text-on-surface-variant/60 uppercase">DB://ACADEMIC</span>
+                    </div>
+                    <div class="space-y-8">
+                        <div>
+                            <div class="flex justify-between items-start mb-1">
+                                <h3 class="font-headline font-bold text-xl uppercase">Coimbatore Institute of Technology
+                                </h3>
+                                <span class="font-label text-xs font-bold text-on-surface-variant">2019 - 2023</span>
+                            </div>
+                            <p class="font-label text-sm text-secondary-dim uppercase font-bold">B.E. in Computer
+                                Science and Engineering</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Certifications -->
+                <div>
+                    <div class="flex items-baseline gap-4 mb-8 border-b-2 border-on-surface/10 pb-2">
+                        <h2 class="font-headline font-bold text-3xl tracking-tighter">CERTIFICATIONS</h2>
+                        <span class="font-label text-[10px] text-on-surface-variant/60 uppercase">VERIFY://CERTS</span>
+                    </div>
+                    <div class="space-y-6">
+                        <div
+                            class="border-2 border-dashed border-on-surface/20 p-4 hover:border-secondary transition-colors group">
+                            <div class="flex items-center gap-4">
+                                <span
+                                    class="material-symbols-outlined text-on-surface-variant group-hover:text-secondary"
+                                    data-icon="verified">verified</span>
+                                <div>
+                                    <h4 class="font-headline font-bold text-base uppercase">Meta Front-End Developer
+                                        Professional Certificate</h4>
+                                    <p class="font-label text-[11px] text-on-surface-variant">COURSERA / 2023</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="border-2 border-dashed border-on-surface/20 p-4 hover:border-secondary transition-colors group">
+                            <div class="flex items-center gap-4">
+                                <span
+                                    class="material-symbols-outlined text-on-surface-variant group-hover:text-secondary"
+                                    data-icon="verified">verified</span>
+                                <div>
+                                    <h4 class="font-headline font-bold text-base uppercase">AWS Certified Solutions
+                                        Architect – Associate</h4>
+                                    <p class="font-label text-[11px] text-on-surface-variant">AMAZON WEB SERVICES / 2024
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Blog Section -->
+        <section class="mb-24" id="blog">
+            <div class="flex items-baseline gap-4 mb-10 border-b-2 border-on-surface/10 pb-4">
+                <h2 class="font-headline font-bold text-5xl tracking-tighter">BLOG</h2>
+                <span class="font-label text-sm text-on-surface-variant/60">VAR/LOG/POSTS</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="border-2 border-[#36392d] bg-surface-container-low overflow-hidden group">
+                    <img alt="The Future of Web Components"
+                        class="w-full h-48 object-cover border-b-2 border-[#36392d] grayscale group-hover:grayscale-0 transition-all duration-300"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzMhK5rkGe1WQXcEOfk05vsC2U7Q6EG-G1l2H-mpDtKiJ2aalX1iTFj3qvNws6vgMv7ib6W100vldvywdjt_rftZihJYGR5AUGo0KO7lFm3sw8xnJPfWxWkcUKnpI2uWHBFEvdEEdABWjf9HLW-B4x0piPABRfMNnLy3GlwWS8D_LpnYJHAuCijX0svNUyzEQxdU_vz-6xPpbZCew1OS7_FXI3lfnih0-uDGlrkpnQcd1BvHLfRLJTSnebJC4SG2Rm30suGL4NOJjS" />
+                    <div class="p-6">
+                        <h3 class="font-headline font-bold text-xl mb-4 leading-none uppercase">The Future of Web
+                            Components</h3>
+                        <p class="font-body text-sm text-on-surface-variant mb-6 line-clamp-2">Exploring the resurgence
+                            of standard web components in the modern framework landscape...</p>
+                        <a class="font-label text-xs font-bold text-secondary uppercase border-b-2 border-secondary/20 hover:border-secondary transition-colors inline-block"
+                            href="#">READ_FULL_POST</a>
+                    </div>
+                </div>
+                <div class="border-2 border-[#36392d] bg-surface-container-low overflow-hidden group">
+                    <img alt="Scaling React Apps"
+                        class="w-full h-48 object-cover border-b-2 border-[#36392d] grayscale group-hover:grayscale-0 transition-all duration-300"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDB2g9ONfHXyLnqjFSXcc9cMHhOKMWgDvXzAxphe87sAe8D_NVehIzqAyHkGZR7DBuV-Hc6XsM50nFPF62zcdqL5NQEP39VYFakeH7Yq8FQBZpRYVfdb-fij9ZEaoxCZSQXOaldBqu-NahFIHaqrvIkJLB5O0B9lWFdkVysyLhcXDYsbInvdkV2B3g87I2QsSBi90KcUqHX751qN-Z4Rs4Q2ZNGbe-gjB-m1QANiegmcncuvgs1mqQKRJceyyKDF37CrZEkmDSaymQj" />
+                    <div class="p-6">
+                        <h3 class="font-headline font-bold text-xl mb-4 leading-none uppercase">Scaling React Apps</h3>
+                        <p class="font-body text-sm text-on-surface-variant mb-6 line-clamp-2">A deep dive into
+                            architectural patterns for large-scale enterprise React applications...</p>
+                        <a class="font-label text-xs font-bold text-secondary uppercase border-b-2 border-secondary/20 hover:border-secondary transition-colors inline-block"
+                            href="#">READ_FULL_POST</a>
+                    </div>
+                </div>
+                <div class="border-2 border-[#36392d] bg-surface-container-low overflow-hidden group">
+                    <img alt="Mastering CSS Grid"
+                        class="w-full h-48 object-cover border-b-2 border-[#36392d] grayscale group-hover:grayscale-0 transition-all duration-300"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ0cQlTV4xMHKeC7F_fIHj9aBo8wzSqOuxQTMtmCoUDVmhUq3Mq_E87VGBDEDleqbTfLH2d_25GaiOgCnDIuPWZVWibZzHjetd9Jj-b1WGaSinPBohSp3Osz-inBUGa-5ChUimLmiheNLMkLN8O1v1oR5WzWcZ3_edYWtNcQGQ2owCioGUotbCMhKd8Lw4oVgVW8YwIUMVtWUEtmWAvknY3wioGRuy7uugbVD1a5gbZhyebKJykqLd71A31dZL5Dwp0nLnmU0a3hKp" />
+                    <div class="p-6">
+                        <h3 class="font-headline font-bold text-xl mb-4 leading-none uppercase">Mastering CSS Grid</h3>
+                        <p class="font-body text-sm text-on-surface-variant mb-6 line-clamp-2">How we moved away from
+                            framework-specific grids to native CSS capabilities...</p>
+                        <a class="font-label text-xs font-bold text-secondary uppercase border-b-2 border-secondary/20 hover:border-secondary transition-colors inline-block"
+                            href="#">READ_FULL_POST</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- References Section -->
+        <section class="mb-24">
+            <div class="flex items-baseline gap-4 mb-10 border-b-2 border-on-surface/10 pb-4">
+                <h2 class="font-headline font-bold text-5xl tracking-tighter">REFERENCES</h2>
+                <span class="font-label text-sm text-on-surface-variant/60">STDIO://TESTIMONIALS</span>
+            </div>
+            <div class="border-2 border-[#36392d] bg-secondary-fixed p-10 md:p-16 relative">
+                <span class="material-symbols-outlined text-8xl absolute top-6 right-6 opacity-10"
+                    data-icon="format_quote">format_quote</span>
+                <blockquote class="relative z-10">
+                    <p class="font-headline font-bold text-2xl md:text-3xl mb-8 text-on-secondary-fixed leading-tight">
+                        "Ramkumar is an exceptional developer with a keen eye for detail. His ability to bridge the gap
+                        between complex backend logic and fluid user interfaces is remarkable. A true asset to any
+                        engineering team."
+                    </p>
+                    <footer>
+                        <div class="font-label font-bold text-lg text-on-secondary-fixed uppercase tracking-tight">
+                            Bhuvanesh Muthusamy</div>
+                        <div class="font-label text-sm text-on-secondary-fixed/70 uppercase">Technical Lead @ Zoho
+                            Corporation</div>
+                    </footer>
+                </blockquote>
+            </div>
+        </section>
+        <!-- Contact Section -->
+        <section class="mb-12" id="contact">
+            <div class="flex flex-col items-center text-center py-24 border-2 border-[#36392d] bg-surface-container">
+                <h2 class="font-headline font-bold text-4xl mb-6">READY TO COLLABORATE?</h2>
+                <p
+                    class="font-label text-base font-bold text-on-surface-variant mb-10 max-w-md uppercase tracking-tight">
+                    Currently available for select freelance opportunities and full-time engineering roles.</p>
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <a class="group flex items-center gap-3 bg-on-surface text-background px-4 py-2 border-2 border-on-surface hover:bg-transparent hover:text-on-surface transition-all"
+                        href="mailto:ramkumar@example.com">
+                        <span class="material-symbols-outlined text-secondary font-bold"
+                            data-icon="alternate_email">alternate_email</span>
+                        <span class="font-label text-lg font-bold">ramkumar@ramkumarmurthy.com</span>
+                    </a>
+                    <div class="hidden md:block w-0.5 h-10 bg-on-surface"></div>
+                    <div class="flex gap-6">
+                        <a class="text-on-surface hover:text-secondary transition-colors flex items-center gap-2"
+                            href="https://github.com/ramkumar" target="_blank">
+                            <span class="material-symbols-outlined text-3xl font-bold"
+                                data-icon="data_object">data_object</span>
+                            <span class="sr-only">GitHub</span>
+                        </a>
+                        <a class="text-on-surface hover:text-secondary transition-colors flex items-center gap-2"
+                            href="https://linkedin.com/in/ramkumar-murthy" target="_blank">
+                            <span class="material-symbols-outlined text-3xl font-bold" data-icon="hub">hub</span>
+                            <span class="sr-only">LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer
+        class="w-full flex flex-col md:flex-row justify-between items-center px-6 py-8 gap-4 bg-background border-t-2 border-[#36392d]">
+        <div class="font-headline text-[12px] font-bold tracking-tight text-[#36392d]">
+            (C) 2024.RAMKUMAR_MURTHY // SYSTEM_V2.0
+        </div>
+        <div class="flex gap-6">
+            <a class="font-headline text-[11px] font-bold tracking-tight text-[#636658] hover:text-[#706500]"
+                href="https://github.com/ramkumar" target="_blank">[ GITHUB ]</a>
+            <a class="font-headline text-[11px] font-bold tracking-tight text-[#636658] hover:text-[#706500]"
+                href="https://linkedin.com/in/ramkumar-murthy" target="_blank">[ LINKEDIN ]</a>
+            <a class="font-headline text-[11px] font-bold tracking-tight text-[#636658] hover:text-[#706500]"
+                href="mailto:ramkumar@example.com">[ EMAIL ]</a>
+        </div>
+    </footer>
+</body>
+
+</html>

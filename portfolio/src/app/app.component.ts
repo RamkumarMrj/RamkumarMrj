@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, Renderer2 } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { DataSourceService } from './services/data-source.service';
@@ -13,19 +13,64 @@ import { APP_BASE_HREF } from '@angular/common';
 export class AppComponent implements OnInit {
   title = 'Ramkumar Murthy';
   data: any;
+  currentYear: number = new Date().getFullYear();
+  isDarkMode = false;
   private iconPath: string = "assets/icons";
 
   constructor(
     private iconRegistry: MatIconRegistry,
     private sanitizer: DomSanitizer,
     @Inject(APP_BASE_HREF) private baseHref: string,
-    private dataService: DataSourceService
+    private dataService: DataSourceService,
+    private renderer: Renderer2
   ) {
     this.registerIcons();
   }
 
   ngOnInit(): void {
     this.getResume();
+    this.loadBlogPosts();
+    
+    // Check for saved theme preference or system preference
+    if (typeof window !== 'undefined') {
+      try {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          this.setDarkMode(true);
+        }
+      } catch (e) {
+        console.warn('LocalStorage not accessible:', e);
+      }
+    }
+  }
+
+  toggleDarkMode() {
+    this.setDarkMode(!this.isDarkMode);
+    console.log('Dark mode toggled to:', this.isDarkMode);
+  }
+
+  setDarkMode(isDark: boolean) {
+    this.isDarkMode = isDark;
+    if (typeof document !== 'undefined') {
+      try {
+        if (isDark) {
+          this.renderer.addClass(document.documentElement, 'dark');
+          this.renderer.addClass(document.body, 'dark');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          this.renderer.removeClass(document.documentElement, 'dark');
+          this.renderer.removeClass(document.body, 'dark');
+          localStorage.setItem('theme', 'light');
+        }
+      } catch (e) {
+        console.warn('Could not set theme:', e);
+      }
+    }
+  }
+
+  formatName(name: string | undefined): string {
+    if (!name) return '';
+    return name.toUpperCase().replace(/\s+/g, '_');
   }
 
   private registerIcons(): void {
@@ -63,6 +108,25 @@ export class AppComponent implements OnInit {
   getResume() {
     this.dataService.getData().subscribe((data) => {
       this.data = data;
+    });
+  }
+
+  loadBlogPosts() {
+    this.dataService.getBlogPosts().subscribe((posts) => {
+      const mappedPosts = (posts || []).map(p => ({
+        ...p,
+        image: p.image || `https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=800`
+      }));
+      if (this.data) {
+        this.data.blogs = mappedPosts;
+      } else {
+        const interval = setInterval(() => {
+          if (this.data) {
+            this.data.blogs = mappedPosts;
+            clearInterval(interval);
+          }
+        }, 100);
+      }
     });
   }
 }

@@ -1,163 +1,363 @@
-<!-- partial:index.partial.html -->
-<div id="inner-nav"></div>
-<div id="container">
-  <div id="profile">
-    <div id="image" *ngIf="data && data.basics && data.basics.profiles">
-      <img id="profile-photo" src="{{data?.basics?.image || 'Not found'}}" alt="Profile-Image">
-    </div>
-    <p id="name">{{data?.basics?.name || 'Not found'}}<br><span id="email">{{data?.basics?.email || 'Not found'}}</span></p>
-    <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="light" data-type="HORIZONTAL"
-      data-vanity="ramkumarmrj" data-version="v1"><a class="badge-base__link LI-simple-link"
-        href="https://in.linkedin.com/in/ramkumarmrj?trk=profile-badge"></a></div>
+<div *ngIf="data" [class.dark]="isDarkMode"
+    class="min-h-screen bg-background text-on-surface font-body selection:bg-secondary-fixed selection:text-on-secondary-fixed transition-colors duration-300">
 
-    <hr width="100%">
-    <div id="profile-about">
-      <h4 style="display:inline;">About</h4>
-    </div>
-    <p id="year-graduation">Year of Graduation<br><strong>{{ (data?.education[0]?.endDate | date:'MMMM yyyy') || 'Not found'
-        }}</strong></p>
-    <p id="education">Education<br><strong>{{data?.education[0]?.studyType || 'Not found'}} |
-        {{data?.education[0]?.institution || 'Not found'}}, {{data?.education[0]?.place || 'Not found'}}</strong></p>
-    <p id="more-about">More about me<br><span>{{data?.education[0]?.area || 'Not found'}}</span></p>
-    <p id="telephone">Phone<br><strong>{{data?.basics?.phone || 'Not found'}}</strong></p>
-    <hr>
-    <div id="social-links" *ngFor="let profile of data?.basics.profiles">
-      <a [href]="profile.url" target="_blank">
-        <mat-icon [svgIcon]="profile.network.toLowerCase()" aria-hidden="false">{{profile.network}}</mat-icon>
-      </a>
-    </div>
-    <hr>
-    <p class="tags">
-      <a href="assets/data/Ramkumar_Murthy_Jan_2024___CV.pdf" download="Ramkumar Murthy.pdf">Download CV
-        <mat-icon svgIcon="download"></mat-icon>
-      </a><br><br>
-      <a href="assets/data/Ramkumar_Murthy_Jan_2024___CV.pdf" target="_blank">View CV <mat-icon
-          svgIcon="open-link"></mat-icon></a>
-    </p>
-    <hr>
-    <div id="profile-languages">
-      <h6 style="display:inline;">Languages</h6>
-      <ul *ngFor="let lang of data?.languages">
-        <li id="languages">{{lang.language}} - <em>{{lang.fluency}}</em></li>
-      </ul>
-      <p><span id="college">{{data?.basics.location.city}}, {{data?.basics.location.region}},
-          {{data?.basics.location.countryCode}}</span></p>
-    </div>
-    <hr>
-    <div id="blogs">
-      <h2 style="display:inline;">Blogs</h2>
-      <p></p>
-      <div class="card-container" *ngIf="data">
-        <div class="card" *ngFor="let blog of data.blogs">
-          <a href="{{ blog.url }}" target="_blank">
-            <div class="card-content">
-              <img src="{{ blog.image }}" alt="{{ blog.title }} Thumbnail" class="thumbnail blog-thumbnail">
-              <h5>{{ blog.title }}</h5>
-              <p>{{ blog.description }}</p>
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 max-w-full themed-border"
+        [style.background-color]="'var(--header-bg)'" [style.backdrop-filter]="'blur(var(--header-blur))'"
+        style="border-top-width: 0; border-left-width: 0; border-right-width: 0;">
+        <div class="flex items-center gap-4">
+            <img *ngIf="data.basics?.image" [src]="data.basics.image" alt="Profile"
+                class="w-10 h-10 border themed-border object-cover" />
+            <div class="text-sm font-headline font-bold text-on-surface">
+                &gt; {{ formatName(data.basics?.name) }}
             </div>
-          </a>
         </div>
-      </div>
-    </div>
-    <hr>
-  </div>
-  <!-- Background -->
-  <div id="info-cards">
-    <div class="card">
-      <h3><mat-icon svgIcon="about" aria-hidden="false" aria-label="about"></mat-icon>&nbsp;&nbsp;&nbsp;About</h3>
-      <p>{{data?.basics?.summary}}</p>
-    </div>
+        <nav class="hidden md:flex items-center gap-6">
+            <a class="text-on-surface-variant font-bold hover:text-secondary transition-colors duration-150 font-label text-[11px] uppercase tracking-tighter"
+                href="#about">[ ABOUT ]</a>
+            <a class="text-on-surface-variant font-bold hover:text-secondary transition-colors duration-150 font-label text-[11px] uppercase tracking-tighter"
+                href="#work">[ WORK ]</a>
+            <a class="text-on-surface-variant font-bold hover:text-secondary transition-colors duration-150 font-label text-[11px] uppercase tracking-tighter"
+                href="#projects">[ PROJECTS ]</a>
+            <a class="text-on-surface-variant font-bold hover:text-secondary transition-colors duration-150 font-label text-[11px] uppercase tracking-tighter"
+                href="#skills">[ SKILLS ]</a>
+            <a class="text-on-surface-variant font-bold hover:text-secondary transition-colors duration-150 font-label text-[11px] uppercase tracking-tighter"
+                href="#contact">[ CONTACT ]</a>
+        </nav>
+        <div class="flex items-center gap-4 text-secondary">
+            <a *ngFor="let profile of data.basics?.profiles | slice:0:1" [href]="$any(profile).url" target="_blank"
+                class="material-symbols-outlined font-bold hover:scale-110 transition-transform">hub</a>
+            <button (click)="toggleDarkMode()"
+                class="material-symbols-outlined font-bold hover:rotate-12 transition-transform">
+                {{ isDarkMode ? 'light_mode' : 'terminal' }}
+            </button>
+        </div>
+    </header>
 
-    <!-- Work Experience -->
-    <div class="card">
-      <h3><mat-icon svgIcon="work" aria-hidden="false" aria-label="work"></mat-icon>&nbsp;&nbsp;&nbsp;Work Experience</h3>
-      <ul *ngFor="let exp of data?.work">
-        <hr>
-        <li>
-          <p class="tags">
-            <a href="{{ exp.url }}" target="_blank">{{exp.position}} <mat-icon svgIcon="open-link" aria-hidden="false"
-                aria-label="open-link"></mat-icon></a> | <span>{{exp.company}}</span><br>
-            <span>{{exp.location}} | <span>{{exp.startDate | date: "MMMM YYYY"}} - {{exp.endDate | date: "MMMM
-                YYYY"}}</span></span>
-          </p>
-          <p>{{exp.summary}}</p>
-          <p><b><em>Highlights:</em></b></p>
-          <ul *ngFor="let highlight of exp.highlights">
-            <li>{{highlight}}</li>
-          </ul>
-        </li>
-      </ul>
-    </div>
+    <main class="pt-24 pb-12 px-6 max-w-6xl mx-auto">
+        <!-- Hero Section -->
+        <section class="mb-24 mt-12">
+            <div
+                class="themed-border bg-surface-container-low p-8 md:p-12 font-label leading-relaxed relative overflow-hidden md:text-xl">
+                <!-- Background Image Mask -->
+                <div class="absolute top-0 right-0 w-full md:w-1/2 h-full z-0 pointer-events-none"
+                    style="mask-image: linear-gradient(to right, transparent, black); -webkit-mask-image: linear-gradient(to right, transparent, black);">
+                    <img *ngIf="data.basics?.backgroundImage" [src]="data.basics.backgroundImage" alt="Hero Background"
+                        class="w-full h-full object-cover grayscale opacity-10 object-top" />
+                </div>
+                <div class="absolute top-0 right-0 p-4 opacity-10 select-none pointer-events-none">
+                    <span class="material-symbols-outlined text-[10rem]">code</span>
+                </div>
+                <!-- JSON Content -->
+                <div class="space-y-1 relative z-10">
+                    <div class="flex gap-6">
+                        <span class="text-on-surface-variant/20 shrink-0 font-medium">01_</span>
+                        <p class="text-2xl md:text-4xl"><span class="syntax-keyword">INIT</span>&nbsp;<span
+                                class="syntax-key">engineer</span> <span class="syntax-key">{{ '{' }}</span><span class="terminal-cursor"></span></p>
+                    </div>
+                    <div class="flex gap-6 pl-8">
+                        <span class="text-on-surface-variant/20 shrink-0 font-medium">02_</span>
+                        <p><span class="syntax-key">"NAME"</span>: <span class="syntax-string">"{{ data.basics?.name
+                                }}"</span>,</p>
+                    </div>
+                    <div class="flex gap-6 pl-8">
+                        <span class="text-on-surface-variant/20 shrink-0 font-medium">03_</span>
+                        <p><span class="syntax-key">"ROLE"</span>: <span class="syntax-string">"{{ data.basics?.label
+                                }}"</span>,</p>
+                    </div>
+                    <div class="flex gap-6 pl-8">
+                        <span class="text-on-surface-variant/20 shrink-0 font-medium">04_</span>
+                        <p><span class="syntax-key">"SITE"</span>: <span class="syntax-string">"{{ data.basics?.url
+                                }}"</span>,</p>
+                    </div>
+                    <div class="flex gap-6 pl-8">
+                        <span class="text-on-surface-variant/20 shrink-0 font-medium">05_</span>
+                        <p><span class="syntax-key">"EMAIL"</span>: <span class="syntax-string">"{{ data.basics?.email
+                                }}"</span>,</p>
+                    </div>
+                    <div class="flex gap-6 pl-8">
+                        <span class="text-on-surface-variant/20 shrink-0 font-medium">06_</span>
+                        <p><span class="syntax-key">"LOC"</span>: <span class="syntax-string">"{{
+                                data.basics?.location?.city }}, {{ data.basics?.location?.countryCode }}"</span></p>
+                    </div>
+                    <div class="flex gap-6">
+                        <span class="text-on-surface-variant/20 shrink-0 font-medium">07_</span>
+                        <p><span class="syntax-key">{{ '}' }};</span></p>
+                    </div>
+                </div>
+                <!-- Action Buttons -->
+                <div class="mt-12 flex items-center gap-6 relative z-10">
+                    <a *ngFor="let profile of data.basics?.profiles | slice:0:1" [href]="$any(profile).url"
+                        target="_blank"
+                        class="bg-on-surface text-background px-6 py-3 font-label text-sm uppercase font-bold tracking-tight hover:bg-secondary-fixed hover:text-on-secondary-fixed transition-colors">
+                        GIT: FETCH_PROFILE
+                    </a>
+                    <a href="https://www.linkedin.com/in/ramkumarmrj/"
+                        class="flex items-center gap-2 font-label text-xs uppercase font-bold tracking-tight border-b-2 border-secondary-fixed hover:text-secondary transition-colors">
+                        <span class="material-symbols-outlined text-sm">link</span> _PING_ME
+                    </a>
+                </div>
+            </div>
+        </section>
 
-    <!-- Projects -->
-    <div class="card">
-      <h3><mat-icon svgIcon="projects" aria-hidden="false" aria-label="projects"></mat-icon>&nbsp;&nbsp;&nbsp;Projects
-        Experience</h3>
-      <ul *ngFor="let project of data?.projects">
-        <li>
-          <p class="tags">
-            <a href="{{ project.url }}" target="_blank">{{project.name}}
-              <mat-icon svgIcon="open-link" aria-hidden="false" aria-label="open-link"></mat-icon>
+        <!-- About Section -->
+        <section class="mb-24" id="about">
+            <div class="flex items-baseline gap-4 mb-10 border-b-2 border-on-surface/10 pb-4">
+                <h2 class="themed-heading">SUMMARY</h2>
+                <span class="font-label text-sm text-on-surface-variant/60">SYS://PROFILE_INFO</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="md:col-span-2">
+                    <p class="text-xl md:text-2xl font-body leading-relaxed text-on-surface-variant italic">
+                        "{{ data.basics?.summary }}"
+                    </p>
+                </div>
+                <div class="themed-border p-6 bg-surface-container-low">
+                    <h4 class="font-label text-xs font-bold uppercase mb-4 text-on-surface/40">STATISTICS</h4>
+                    <div class="space-y-4 font-label">
+                        <div class="flex justify-between">
+                            <span class="text-xs">STATUS</span>
+                            <span class="text-xs font-bold text-secondary">READY_TO_DEPLOY</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-xs">EXPERIENCE</span>
+                            <span class="text-xs font-bold">2+ YEARS</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-xs">TIMEZONE</span>
+                            <span class="text-xs font-bold">IST (GMT+5:30)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="mb-24" id="work">
+            <div class="flex items-baseline gap-4 mb-10 border-b-2 border-on-surface/10 pb-4">
+                <h2 class="themed-heading">EXPERIENCE</h2>
+                <span class="font-label text-sm text-on-surface-variant/60">LOG://CAREER_TIMELINE</span>
+            </div>
+            <div class="space-y-12">
+                <div *ngFor="let job of data.work; let i = index"
+                    class="relative pl-8 md:pl-12 border-l-2 border-on-surface/10">
+                    <!-- Dynamic Indicator -->
+                    <div class="absolute top-0 timeline-indicator" [style.left]="'calc(var(--indicator-size) / -2)'"
+                        [class.opacity-50]="i > 0"></div>
+                    <div class="flex flex-col md:flex-row md:items-baseline justify-between mb-4 gap-2">
+                        <div>
+                            <h3 class="font-headline font-bold text-2xl uppercase">{{ job.position }}</h3>
+                            <div class="font-label font-bold text-secondary/80">{{ job.company | uppercase }}</div>
+                        </div>
+                        <div
+                            class="font-label text-sm font-bold bg-surface-container px-3 py-1 border border-on-surface/10">
+                            {{ job.startDate | date:'MMM yyyy' | uppercase }} - {{ (job.endDate | date:'MMM yyyy' |
+                            uppercase) || 'PRESENT' }}
+                        </div>
+                    </div>
+                    <ul class="space-y-3 max-w-3xl">
+                        <li *ngFor="let highlight of job.highlights" class="flex gap-3">
+                            <span class="text-secondary font-bold font-label">&gt;&gt;</span>
+                            <p class="text-on-surface-variant">{{ highlight }}</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="mb-24" id="projects">
+            <div class="flex items-baseline gap-4 mb-10 border-b-2 border-on-surface/10 pb-4">
+                <h2 class="themed-heading">PROJECTS</h2>
+                <span class="font-label text-sm text-on-surface-variant/60">FILE://WORK_HISTORY</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-on-surface themed-border overflow-hidden">
+                <div *ngFor="let project of data.projects; let last = last; let i = index"
+                    class="bg-background p-8 group hover:bg-surface-container-low transition-colors flex flex-col justify-between min-h-[320px]"
+                    [class.md:col-span-2]="last && (data.projects.length % 2 !== 0)">
+                    <div>
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="font-label text-xs font-bold text-on-surface-variant/60">[ 0x0{{ i + 1 }}
+                                ]</span>
+                            <a *ngIf="$any(project).url" [href]="$any(project).url" target="_blank"
+                                class="material-symbols-outlined font-bold text-on-surface-variant group-hover:text-secondary transition-colors">open_in_new</a>
+                        </div>
+                        <h3 class="font-headline font-bold text-2xl mb-4 uppercase">{{ $any(project).name }}</h3>
+                        <p class="text-on-surface-variant text-base mb-8 leading-tight max-w-sm">
+                            {{ $any(project).description }}
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <span *ngFor="let tech of $any(project).stack"
+                            class="font-label text-[11px] font-bold border border-outline-variant px-2 py-0.5 text-on-surface-variant uppercase">
+                            {{ tech }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="mb-24" id="skills">
+            <div class="flex items-baseline gap-4 mb-10 border-b-2 border-on-surface/10 pb-4">
+                <h2 class="themed-heading">SKILLS</h2>
+                <span class="font-label text-sm text-on-surface-variant/60">BIN://TECH_STACK</span>
+            </div>
+            <div class="themed-border p-8 bg-surface-container-low">
+                <div class="flex flex-wrap gap-x-12 gap-y-12">
+                    <div *ngFor="let skillGroup of data.skills">
+                        <h4 class="font-label text-[12px] font-bold uppercase tracking-tight text-on-surface/40 mb-4">
+                            &gt; {{ skillGroup.name | uppercase }}
+                        </h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span *ngFor="let keyword of skillGroup.keywords"
+                                class="font-label text-sm font-bold text-secondary">
+                                [ {{ keyword | uppercase }} ]
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Certifications -->
+        <section class="mb-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Education -->
+                <div>
+                    <div class="flex items-baseline gap-4 mb-8 border-b-2 border-on-surface/10 pb-2">
+                        <h2 class="font-headline font-bold text-3xl tracking-tighter">EDUCATION</h2>
+                        <span class="font-label text-[10px] text-on-surface-variant/60 uppercase">DB://ACADEMIC</span>
+                    </div>
+                    <div class="space-y-8">
+                        <div *ngFor="let edu of data.education">
+                            <div class="flex justify-between items-start mb-1">
+                                <h3 class="font-headline font-bold text-xl uppercase">{{ edu.institution }}</h3>
+                                <span class="font-label text-xs font-bold text-on-surface-variant">{{ edu.startDate |
+                                    date:'yyyy' }} - {{ edu.endDate | date:'yyyy' }}</span>
+                            </div>
+                            <p class="font-label text-sm text-secondary-dim uppercase font-bold">{{ edu.studyType }} IN
+                                {{ edu.area }}</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Certifications -->
+                <div>
+                    <div class="flex items-baseline gap-4 mb-8 border-b-2 border-on-surface/10 pb-2">
+                        <h2 class="font-headline font-bold text-3xl tracking-tighter">CERTIFICATIONS</h2>
+                        <span class="font-label text-[10px] text-on-surface-variant/60 uppercase">VERIFY://CERTS</span>
+                    </div>
+                    <div class="space-y-6">
+                        <a *ngFor="let cert of data.certifications" [href]="$any(cert).url" target="_blank"
+                            class="block border-2 border-dashed border-on-surface/20 p-4 hover:border-secondary transition-colors group">
+                            <div class="flex items-center gap-4">
+                                <span
+                                    class="material-symbols-outlined text-on-surface-variant group-hover:text-secondary">verified</span>
+                                <div>
+                                    <h4 class="font-headline font-bold text-base uppercase">{{ $any(cert).name }}</h4>
+                                    <p class="font-label text-[11px] text-on-surface-variant">{{ $any(cert).issuer |
+                                        uppercase }} / {{ $any(cert).startDate | date:'yyyy' }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section *ngIf="data.blogs?.length" class="mb-24" id="blog">
+            <div class="flex items-baseline gap-4 mb-10 border-b-2 border-on-surface/10 pb-4">
+                <h2 class="themed-heading">BLOG</h2>
+                <span class="font-label text-sm text-on-surface-variant/60">VAR/LOG/POSTS</span>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div *ngFor="let post of data.blogs"
+                    class="themed-border bg-surface-container-low overflow-hidden group">
+                    <img *ngIf="$any(post).image" [src]="$any(post).image" [alt]="$any(post).title"
+                        class="w-full h-48 object-cover border-b-2 border-on-surface grayscale group-hover:grayscale-0 transition-all duration-300" />
+                    <div class="p-6">
+                        <h3 class="font-headline font-bold text-xl mb-4 leading-none uppercase">{{ $any(post).title }}
+                        </h3>
+                        <p class="font-body text-sm text-on-surface-variant mb-6 line-clamp-2">{{ $any(post).description
+                            }}</p>
+                        <a [href]="$any(post).url" target="_blank"
+                            class="font-label text-xs font-bold text-secondary uppercase border-b-2 border-secondary/20 hover:border-secondary transition-colors inline-block">
+                            READ_FULL_POST
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- References Section -->
+        <section *ngIf="data.references?.length" class="mb-24">
+            <div class="flex items-baseline gap-4 mb-10 border-b-2 border-on-surface/10 pb-4">
+                <h2 class="themed-heading">REFERENCES</h2>
+                <span class="font-label text-sm text-on-surface-variant/60">STDIO://TESTIMONIALS</span>
+            </div>
+            <div *ngFor="let ref of data.references" class="themed-border p-10 md:p-16 relative mb-8 last:mb-0"
+                [style.background-color]="isDarkMode ? 'var(--surface-container)' : 'var(--secondary-fixed)'">
+                <span class="material-symbols-outlined text-8xl absolute top-6 right-6 opacity-10">format_quote</span>
+                <blockquote class="relative z-10">
+                    <p class="font-headline font-bold text-2xl md:text-3xl mb-8 leading-tight italic"
+                        [class.text-on-secondary-fixed]="!isDarkMode" [class.text-on-surface]="isDarkMode">
+                        "{{ $any(ref).reference }}"
+                    </p>
+                    <footer>
+                        <div class="font-label font-bold text-lg uppercase tracking-tight"
+                            [class.text-on-secondary-fixed]="!isDarkMode" [class.text-on-surface]="isDarkMode">
+                            {{ $any(ref).name }}
+                        </div>
+                        <div class="font-label text-sm uppercase opacity-70"
+                            [class.text-on-secondary-fixed]="!isDarkMode" [class.text-on-surface]="isDarkMode">
+                            Industry Reference
+                        </div>
+                    </footer>
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="mb-12" id="contact">
+            <div class="flex flex-col items-center text-center py-24 themed-border bg-surface-container">
+                <h2 class="font-headline font-bold text-4xl mb-6 uppercase">READY TO COLLABORATE?</h2>
+                <p
+                    class="font-label text-base font-bold text-on-surface-variant mb-10 max-w-md uppercase tracking-tight">
+                    Currently available for select freelance opportunities and full-time engineering roles.
+                </p>
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <a [href]="'mailto:' + data.basics?.email"
+                        class="group flex items-center gap-3 bg-on-surface text-background px-4 py-2 border-2 border-on-surface hover:bg-transparent hover:text-on-surface transition-all">
+                        <span class="material-symbols-outlined text-secondary font-bold">alternate_email</span>
+                        <span class="font-label text-lg font-bold">{{ data.basics?.email }}</span>
+                    </a>
+                    <div class="hidden md:block w-0.5 h-10 bg-on-surface"></div>
+                    <div class="flex gap-6">
+                        <a *ngFor="let profile of data.basics?.profiles | slice:0:2" [href]="$any(profile).url"
+                            target="_blank" class="text-on-surface-variant hover:text-secondary transition-colors">
+                            <span class="material-symbols-outlined text-3xl font-bold">{{ $any(profile).network ===
+                                'GitHub' ? 'data_object' : 'hub' }}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer
+        class="w-full flex flex-col md:flex-row justify-between items-center px-6 py-8 gap-4 bg-background border-t-2 border-outline-variant">
+        <div class="font-headline text-[12px] font-bold tracking-tight text-on-surface-variant/60">
+            (C) {{ currentYear }}.{{ formatName(data.basics?.name) }} // SYSTEM_V3.0
+        </div>
+        <div class="flex gap-6">
+            <a *ngFor="let profile of data.basics?.profiles | slice:0:4" [href]="$any(profile).url" target="_blank"
+                class="font-headline text-[11px] font-bold tracking-tight text-on-surface-variant hover:text-secondary">
+                [ {{ $any(profile).network | uppercase }} ]
             </a>
-            <span><span> | {{ project.startDate | date: "MMMM YYYY" }} - {{ project.endDate | date: "MMMM YYYY" }}</span></span>
-          </p>
-          <a class="edit" href="#"><i class="fas fa-pen stroke-transparent-blue"></i></a>
-          <ul>
-            <li>{{project.description}}</li>
-            <li><b>Stack Used:</b> {{ project.stack.join(', ') }}</li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Skills -->
-    <div class="card">
-      <h3><mat-icon svgIcon="skills" aria-hidden="false" aria-label="skills"></mat-icon>&nbsp;&nbsp;&nbsp;Skills</h3>
-      <ul *ngFor="let skill of data?.skills">
-        <li>
-          <p class="tags">{{skill.name}}</p>
-          <ul>
-            <li>{{ skill.keywords.join(',  ') }}</li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Certifications -->
-    <div class="card">
-      <h3><mat-icon svgIcon="certificates" aria-hidden="false"
-          aria-label="certificates"></mat-icon>&nbsp;&nbsp;&nbsp;Certifications</h3>
-      <ul *ngFor="let cert of data?.certifications">
-        <li>
-          <p class="tags">{{ cert.name }}<a href="{{ cert.url }}" target="_blank">
-              <mat-icon svgIcon="open-link"></mat-icon></a><br><span>{{ cert.issuer }} |
-              <span>{{ cert.startDate | date: "MMMM YYYY" }}</span></span></p>
-        </li>
-      </ul>
-    </div>
-
-    <!-- Education -->
-    <div class="card">
-      <h3><mat-icon svgIcon="education" aria-hidden="false" aria-label="education"></mat-icon>&nbsp;&nbsp;&nbsp;Education
-      </h3>
-      <ul *ngFor="let edu of data?.education">
-        <li>
-          <p class="tags">{{ edu.studyType }} - {{ edu.area }}<br><span> {{ edu.institution }}, {{ edu.place }} | <span>{{
-                edu.endDate | date: "MMMM YYYY" }}</span></span></p>
-        </li>
-      </ul>
-    </div>
-
-    <!-- References -->
-    <div class="card">
-      <h3><mat-icon svgIcon="references" aria-hidden="false"
-          aria-label="references"></mat-icon>&nbsp;&nbsp;&nbsp;References</h3>
-      <ul *ngFor="let ref of data?.references">
-        <li>
-          <p class="tags">{{ref.name}}</p>
-          <em>"{{ref.reference}}"</em>
-        </li>
-      </ul>
-    </div>
-  </div>
+            <a [href]="'mailto:' + data.basics?.email"
+                class="font-headline text-[11px] font-bold tracking-tight text-on-surface-variant hover:text-secondary">[
+                EMAIL ]</a>
+        </div>
+    </footer>
 </div>

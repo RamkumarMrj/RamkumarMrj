@@ -1,17 +1,18 @@
 {
   "basics": {
     "name": "Ramkumar Murthy",
-    "label": "Software Engineer",
-    "image": "https://img.freepik.com/premium-vector/avatar-profile-icon-flat-style-female-user-profile-vector-illustration-isolated-background-women-profile-sign-business-concept_157943-38866.jpg?semt=ais_incoming&w=740&q=80",
+    "label": "Software Engineer (Platform & DevOps)",
+    "image": "assets/profile.jpeg",
+    "backgroundImage": "assets/cover-image.jpg",
     "email": "ramkumar.mrj97@gmail.com",
     "phone": "+91 770 8151 324",
-    "url": "https://ramkumar-mrj.github.io",
+    "url": "https://ramkumar-mrj.web.app/",
     "url1": [
-      "https://ramkumar-mrj.web.app/",
       "https://ramkumarmrj.netlify.app/",
       "https://ramkumarmrj.github.io/RamkumarMrj/"
     ],
-    "summary": "Highly motivated and adaptable software engineer with a strong foundation in programming languages, frameworks, and cloud technologies. Eager to leverage skills and experience in data analysis, automation, and backend development to contribute to a fast-paced environment.",
+    "availability": "Open for Freelance & Full-Time Opportunities (Remote / Hybrid) — Platform Engineering, DevOps, SRE, Network Automation & Orchestration",
+    "summary": "Platform & Automation Engineer with 2+ years of experience building and automating reliable backend and internal platform workflows. Strong expertise in Python-based automation, CI/CD pipelines, and API-driven integrations across Azure and AWS cloud environments. Proven ability to integrate ServiceNow with enterprise systems, engineer network orchestration via Infoblox and Palo Alto, and improve deployment reliability and operational efficiency at scale. Also open for freelance engagements in DevOps, SRE, automation scripting, backend development, and cloud infrastructure projects.",
     "location": {
       "address": null,
       "city": "Coimbatore",
@@ -68,14 +69,31 @@
   },
   "work": [
     {
+      "company": "DigitalXC Ai",
+      "url": "https://www.digitalxc.com/",
+      "location": "Chennai, Tamil Nadu, India (Remote)",
+      "position": "DevOps & Automation Engineer",
+      "startDate": "2025-04-01",
+      "endDate": "",
+      "summary": "Platform & Automation Engineer building internal platform workflows, enterprise system integrations, and cloud-native automation pipelines across Azure and AWS environments. Open for freelance projects in parallel.",
+      "highlights": [
+        "Designed and implemented reusable Python-based automation for internal platform workflows, integrating with ServiceNow to improve reliability and reduce manual operational effort.",
+        "Engineered API-based orchestration for enterprise systems including Infoblox and Palo Alto, enabling standardized and scalable network integrations across environments.",
+        "Automated access management using SQL and Windows-level controls, improving provisioning consistency and compliance with security policies.",
+        "Supported deployments across Dev, UAT, and Production by optimizing backend workflows and producing LLD documentation for repeatable and reliable releases."
+      ]
+    },
+    {
       "company": "Outlier.ai",
       "url": "https://outlier.ai",
-      "location": "Bengaluru, Karnataka, India",
-      "position": "Software Developer",
+      "location": "Bengaluru, Karnataka, India (Remote)",
+      "position": "AI Training Software Developer",
       "startDate": "2024-09-01",
-      "endDate": "",
+      "endDate": "2025-04-01",
       "summary": "Software Developer Expertise for AI Training - Freelancer",
       "highlights": [
+        "Reviewed and validated AI-generated Python and SQL code used in automation scenarios, focusing on correctness, edge cases, and maintainability.",
+        "Created structured evaluation prompts to identify failure cases in AI-assisted code generation workflows.",
         "Trained generative AI models (LLM) by crafting and evaluating complex computer science questions and Python code, providing expert feedback to enhance AI coding accuracy and performance."
       ]
     },
@@ -86,10 +104,12 @@
       "position": "Software Engineer Trainee",
       "startDate": "2022-10-31",
       "endDate": "2023-10-30",
-      "summary": "Highly motivated and adaptable technical professional with a strong foundation in full-stack development and a passion for continuous learning. Proven ability to quickly grasp new technologies and contribute to projects involving dashboard development, process optimization, and software development.",
+      "summary": "Full-stack engineer focused on dashboard development, pipeline automation, and distributed systems monitoring in large-scale enterprise test environments.",
       "highlights": [
-        "Extracted Jenkins build logs, processed data with Python APIs, leveraged ELK for analysis, and visualized key performance metrics using Angular dashboards.",
-        "Developed Angular dashboards from scratch, gathering data through filters and APIs, and creating comprehensive visualizations.",
+        "Developed an Angular-Flask dashboard to monitor Jenkins pipeline metrics, improving build visibility and reducing manual troubleshooting time.",
+        "Built and consumed RESTful APIs to automate backend data handling and optimize database queries in large-scale testing environments.",
+        "Implemented ELK Stack pipelines for structured log parsing and operational monitoring of distributed systems.",
+        "Automated Jira defect workflows using REST APIs, improving incident triage efficiency and turnaround time.",
         "Actively participated in agile development and shift-left testing processes, leveraging Git/GitHub and Bitbucket for version control and managing Linux testbeds for testing and deployment.",
         "Completed training in CCNA, Python Programming, Java Full Stack Development (DevOps, Agile), and professional skills."
       ]
@@ -155,8 +175,34 @@
   ],
   "skills": [
     {
-      "name": "Frontend Development",
+      "name": "Languages & Scripting",
       "level": "Expert",
+      "keywords": [
+        "Python",
+        "PowerShell",
+        "JavaScript",
+        "SQL",
+        "Java",
+        "C/C++",
+        "C#"
+      ]
+    },
+    {
+      "name": "Automation & ITSM",
+      "level": "Expert",
+      "keywords": [
+        "CI/CD Pipelines",
+        "Internal Automation Workflows",
+        "ServiceNow Integration Hub",
+        "CMDB",
+        "UIPath Automation",
+        "Jenkins",
+        "GitHub Actions"
+      ]
+    },
+    {
+      "name": "Frontend Development",
+      "level": "Experienced",
       "keywords": [
         "HTML5",
         "CSS3",
@@ -171,15 +217,37 @@
       "name": "Backend Development",
       "level": "Expert",
       "keywords": [
-        "Python",
         "Flask",
         "Django",
-        "Java",
         "Spring Boot",
         "RESTful APIs",
-        "C/C++",
-        "C#",
         "ASP.net"
+      ]
+    },
+    {
+      "name": "Cloud & DevOps",
+      "level": "Experienced",
+      "keywords": [
+        "Azure",
+        "AWS",
+        "Google Cloud Platform",
+        "Docker",
+        "Kubernetes",
+        "Terraform",
+        "ELK Stack",
+        "Firebase",
+        "Git & GitHub"
+      ]
+    },
+    {
+      "name": "Networking & Security Tools",
+      "level": "Familiar",
+      "keywords": [
+        "Infoblox",
+        "Palo Alto",
+        "CCNA (Routing & Switching)",
+        "REST API Orchestration",
+        "Network Automation"
       ]
     },
     {
@@ -193,20 +261,6 @@
       ]
     },
     {
-      "name": "Cloud Platforms & DevOps Tools",
-      "level": "Familiar",
-      "keywords": [
-        "AWS",
-        "Google Cloud Platform",
-        "Docker",
-        "CI/CD",
-        "Jenkins",
-        "ELK Stack",
-        "Firebase",
-        "Git & GitHub"
-      ]
-    },
-    {
       "name": "Soft Skills & Interests",
       "keywords": [
         "Teamwork",
@@ -217,10 +271,25 @@
         "Open Source Contribution",
         "Technical Writing",
         "Technology Enthusiast",
-        "Continuous Learning"
+        "Continuous Learning",
+        "Available for Freelance Projects"
       ]
     }
   ],
+  "freelance": {
+    "available": true,
+    "openTo": [
+      "DevOps Automation",
+      "SRE Consulting",
+      "Network Automation & Orchestration",
+      "Python Scripting & Backend APIs",
+      "CI/CD Pipeline Setup",
+      "Cloud Infrastructure (AWS / Azure / GCP)",
+      "ServiceNow Integrations",
+      "Full-Stack Web Development"
+    ],
+    "note": "Open for remote freelance engagements globally alongside full-time opportunities."
+  },
   "projects": [
     {
       "name": "Digital Document Scanner",

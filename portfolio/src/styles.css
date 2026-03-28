@@ -1,274 +1,175 @@
-/* You can add global styles to this file, and also import other style files */
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-@import "@angular/material/prebuilt-themes/indigo-pink.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* LIGHT THEME (V3.0 - Exact Parity) */
+  --background: #FFFDF5;
+  --on-surface: #36392d; /* #36392d */
+  --on-surface-variant: #636658;
+  --outline: #808273;
+  --outline-variant: #36392d; /* Match the dark border from mockup */
+  --secondary: #706500;
+  --secondary-fixed: #E6D44D;
+  --surface-container-low: #fbfaef;
+  --surface-container: #f5f4e8;
+  --surface-container-high: #eeefe0;
+  --surface-container-highest: #e8ead8;
+  
+  /* Structural Variables */
+  --font-body: 'Space Grotesk', sans-serif;
+  --border-width-main: 2px;
+  --border-radius-main: 0px;
+  --border-radius-full: 0px;
+  --heading-tracking: -0.025em;
+  --secondary-dim: #635900;       /* ADD */
+  --on-secondary-fixed: #474000;  /* ADD */
+  --heading-size-2xl: 3rem; /* text-5xl */
+  
+  /* Syntax Highlighting */
+  --syntax-keyword: #706500;
+  --syntax-string: #5a5f65;
+  --syntax-key: #36392d;
+  
+  /* Indicators */
+  --indicator-radius: 0%; /* Square */
+  --indicator-size: 1rem;
+  --indicator-bg: #36392d;
+  
+  /* Terminal Cursor */
+  --terminal-cursor-width: 12px;
+  --terminal-cursor-color: #706500;
+
+  /* Header */
+  --header-bg: #FFFDF5;
+  --header-blur: 0px;
+}
+
+.dark {
+  /* DARK THEME (V3.0 - Exact Parity) */
+  --background: #0a0a0a;
+  --on-surface: #f5f5f5;
+  --on-surface-variant: #a3a3a3;
+  --outline: #404040;
+  --outline-variant: #404040;
+  --secondary: #E6D44D;
+  --secondary-fixed: #E6D44D;
+  --surface-container-low: #0f0f0f;
+  --surface-container: #121212;
+  --surface-container-high: #1e1e1e;
+  --surface-container-highest: #262626;
+  
+  /* Structural Variables */
+  --font-body: 'Space Grotesk', sans-serif;
+  --border-width-main: 1px;
+  --border-radius-main: 4px;
+  --border-radius-full: 9999px;
+  --heading-tracking: -0.025em;
+  --secondary-dim: #c4b542;        /* ADD */
+  --on-secondary-fixed: #0a0a0a;   /* ADD */
+  --heading-size-2xl: 3rem; /* matched with light theme */
+  
+  /* Syntax Highlighting */
+  --syntax-keyword: #E6D44D;
+  --syntax-string: #a3a3a3;
+  --syntax-key: #f5f5f5;
+  
+  /* Indicators */
+  --indicator-radius: 50%; /* Circle */
+  --indicator-size: 0.5rem; 
+  --indicator-bg: #E6D44D;
+  
+  /* Terminal Cursor */
+  --terminal-cursor-width: 8px;
+  --terminal-cursor-color: #E6D44D;
+
+  /* Header */
+  --header-bg: rgba(10, 10, 10, 0.8);
+  --header-blur: 12px;
+}
+
 html {
-    font-family: 'Open Sans', sans-serif;
-    background: whitesmoke;
+  scroll-behavior: smooth;
 }
 
-a {
-    text-decoration: none;
-    color: black;
+html {
+  scroll-behavior: smooth;
 }
 
-hr {
-    background: grey;
+@layer base {
+  body {
+    @apply bg-background text-on-surface;
+    font-family: var(--font-body);
+    transition: background-color 0.3s ease, color 0.3s ease, border-radius 0.3s ease;
+    cursor: crosshair;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply uppercase;
+    letter-spacing: var(--heading-tracking);
+  }
 }
 
-ul {
-    list-style: none;
-    /* padding: 0;  */
-    margin: 0;
+/* Themed Utilities */
+.themed-border {
+  border-width: var(--border-width-main);
+  border-style: solid;
+  border-color: var(--outline-variant);
+  border-radius: var(--border-radius-main);
 }
 
-li {
-    /* margin-bottom: 3px; */
-    margin-top: 5px;
+.themed-heading {
+  font-size: var(--heading-size-2xl);
+  letter-spacing: var(--heading-tracking);  /* was hardcoded -0.05em */
+  @apply font-headline font-bold;
 }
 
-ul>li>ul li {
-    list-style: circle;
+.ghost-border {
+  border: 1px solid rgba(185, 187, 170, 0.4);
+}
+.dark .ghost-border {
+  border: 1px solid rgba(64, 64, 64, 0.4);
+}
+.dashed-border { border-style: dashed; }
+
+.timeline-indicator {
+  width: var(--indicator-size);
+  height: var(--indicator-size);
+  background-color: var(--indicator-bg);
+  border-radius: var(--indicator-radius);
+  border: 2px solid var(--background);
 }
 
-mat-icon {
-    font-family: 'Material Icons' !important;
+.syntax-keyword { color: var(--syntax-keyword); font-weight: 700; }
+.syntax-string { color: var(--syntax-string); }
+.syntax-key { color: var(--syntax-key); font-weight: 700; }
+
+.terminal-cursor {
+  display: inline-block;
+  width: var(--terminal-cursor-width);
+  height: 1.25em;
+  background-color: var(--terminal-cursor-color);
+  margin-left: 8px;
+  vertical-align: middle;
+  animation: blink 1s step-end infinite;
 }
 
-#container {
-    position: relative;
-    display: flex;
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
-#profile {
-    flex: 60%;
-    display: block;
-    position: relative;
-    margin: 4% 4% 0 3%;
-    width: 100%;
-    height: 100%;
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 700, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
 }
 
-#info-cards {
-    flex: 55%;
-    display: block;
-    margin-top: 5%;
-    margin-right: 10%;
-    width: 100%;
-    height: 100%;
+.dark .material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
 }
 
-#image {
-    position: relative;
-    overflow: hidden;
-}
-
-#image,
-#profile-photo {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    border-radius: 70px;
-}
-
-#image>a {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.5) !important;
-    height: 100%;
-    width: 100%;
-    display: none;
-}
-
-#image>a>i {
-    -webkit-text-stroke: 1px #ffffffdd;
-    padding: 40%;
-}
-
-#image:hover a {
-    display: block;
-}
-
-#name {
-    font-size: 23px !important;
-    line-height: 20px !important;
-}
-
-#about,
-.card>ul>li {
-    padding: 0 0 0 15px;
-    position: relative;
-    display: inline-block;
-    width: 100%;
-}
-
-#about {
-    font-size: 20px !important;
-    padding: 0 !important;
-}
-
-#name,
-#about>h3 {
-    font-weight: bolder;
-    font-family: 'Open Sans', sans-serif;
-}
-
-#email {
-    font-size: 15px !important;
-    font-weight: bold !important;
-    font-family: 'Cutive Mono', monospace;
-}
-
-#college,
-#email,
-#year-graduation,
-#education,
-#more-about,
-#telephone,
-#fax,
-#languages {
-    color: #555;
-    font-size: 13.5px;
-}
-
-strong,
-span {
-    color: black;
-    font-size: 16px;
-}
-
-#social-links,
-#about {
-    display: inline-block;
-}
-
-#social-links {
-    margin-bottom: 12px;
-}
-
-#social-links a {
-    margin: 0 10px;
-}
-
-#edit-intro {
-    display: block;
-    color: #097bbf;
-    font-family: 'Nunito', sans-serif;
-}
-
-.fab {
-    font-size: 1.1em;
-}
-
-.fab,
-.fas {
-    color: whitesmoke;
-}
-
-#about>a {
-    top: 4px;
-    right: 8px;
-}
-
-.edit {
-    top: 19px;
-    right: 10px;
-}
-
-#about>a,
-.edit {
-    position: absolute;
-    font-size: 15px !important;
-}
-
-.stroke-transparent {
-    -webkit-text-stroke: 1px #000;
-    -webkit-text-fill-color: transparent;
-}
-
-.blue {
-    color: #097bbf !important;
-    font-size: 13px;
-}
-
-.stroke-transparent-blue {
-    -webkit-text-stroke: 1px #097bbf;
-    -webkit-text-fill-color: transparent;
-}
-
-.card {
-    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, .1);
-    overflow-x: hidden;
-    margin-bottom: 30px;
-    padding: 15px 30px 30px 30px;
-    background-color: #fff;
-}
-
-.card>h3 {
-    color: #0e141e;
-    font-weight: bolder;
-    font-size: 18px;
-    line-height: 2;
-}
-
-.card>h3>i {
-    font-size: 18px;
-}
-
-.card>a {
-    font-weight: 400;
-    font-size: 15px;
-    margin: 0;
-    margin-left: 25px;
-    padding: 0;
-    border: 0;
-    height: auto;
-    background: transparent;
-    color: #097bbf;
-    outline: none;
-    cursor: pointer;
-}
-
-.card>ul {
-    list-style-type: none;
-}
-
-.tags {
-    font-size: 17px;
-    font-weight: bolder;
-}
-
-.tags~a {
-    display: none !important;
-}
-
-.tags span {
-    font-size: 14px;
-    font-weight: normal;
-    color: #0e141e;
-}
-
-.tags span span {
-    color: #738f93;
-}
-
-@media screen and (max-width:1090px) {
-    #profile {
-        margin-left: 5%;
-    }
-}
-
-@media screen and (max-width:850px) {
-    #container {
-        display: block;
-    }
-
-    #profile {
-        width: 90%;
-    }
-
-    .card {
-        margin: 0 5%;
-        margin-bottom: 30px;
-    }
-}
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb { background: var(--outline-variant); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--outline); }
