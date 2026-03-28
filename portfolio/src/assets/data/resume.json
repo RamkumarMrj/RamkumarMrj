@@ -2,8 +2,8 @@
   "basics": {
     "name": "Ramkumar Murthy",
     "label": "Software Engineer (Platform & DevOps)",
-    "image": "assets/profile.jpeg",
-    "backgroundImage": "assets/cover-image.jpg",
+    "image": "https://raw.githubusercontent.com/RamkumarMrj/RamkumarMrj/master/portfolio/src/assets/profile.jpeg",
+    "backgroundImage": "https://raw.githubusercontent.com/RamkumarMrj/RamkumarMrj/master/portfolio/src/assets/cover-image.jpg",
     "email": "ramkumar.mrj97@gmail.com",
     "phone": "+91 770 8151 324",
     "url": "https://ramkumar-mrj.web.app/",

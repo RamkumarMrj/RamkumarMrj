@@ -43,7 +43,7 @@
                 <div class="absolute top-0 right-0 w-full md:w-1/2 h-full z-0 pointer-events-none"
                     style="mask-image: linear-gradient(to right, transparent, black); -webkit-mask-image: linear-gradient(to right, transparent, black);">
                     <img *ngIf="data.basics?.backgroundImage" [src]="data.basics.backgroundImage" alt="Hero Background"
-                        class="w-full h-full object-cover grayscale opacity-10 object-top" />
+                        class="w-full h-full object-cover grayscale opacity-100 object-top" />
                 </div>
                 <div class="absolute top-0 right-0 p-4 opacity-10 select-none pointer-events-none">
                     <span class="material-symbols-outlined text-[10rem]">code</span>
@@ -53,7 +53,8 @@
                     <div class="flex gap-6">
                         <span class="text-on-surface-variant/20 shrink-0 font-medium">01_</span>
                         <p class="text-2xl md:text-4xl"><span class="syntax-keyword">INIT</span>&nbsp;<span
-                                class="syntax-key">engineer</span> <span class="syntax-key">{{ '{' }}</span><span class="terminal-cursor"></span></p>
+                                class="syntax-key">engineer</span> <span class="syntax-key">{{ '{' }}</span><span
+                                class="terminal-cursor"></span></p>
                     </div>
                     <div class="flex gap-6 pl-8">
                         <span class="text-on-surface-variant/20 shrink-0 font-medium">02_</span>
