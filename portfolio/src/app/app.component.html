@@ -12,7 +12,7 @@
                 &gt; {{ formatName(data.basics?.name) }}
             </div>
         </div>
-        <nav class="hidden md:flex items-center gap-6">
+        <nav class="hidden lg:flex items-center gap-6">
             <a class="text-on-surface-variant font-bold hover:text-secondary transition-colors duration-150 font-label text-[11px] uppercase tracking-tighter"
                 href="#about">[ ABOUT ]</a>
             <a class="text-on-surface-variant font-bold hover:text-secondary transition-colors duration-150 font-label text-[11px] uppercase tracking-tighter"
@@ -24,13 +24,31 @@
             <a class="text-on-surface-variant font-bold hover:text-secondary transition-colors duration-150 font-label text-[11px] uppercase tracking-tighter"
                 href="#contact">[ CONTACT ]</a>
         </nav>
-        <div class="flex items-center gap-4 text-secondary">
+        <div class="flex items-center gap-2 lg:gap-4 text-secondary">
             <a *ngFor="let profile of data.basics?.profiles | slice:0:1" [href]="$any(profile).url" target="_blank"
-                class="material-symbols-outlined font-bold hover:scale-110 transition-transform">hub</a>
+                class="hidden md:block material-symbols-outlined font-bold hover:scale-110 transition-transform">hub</a>
             <button (click)="toggleDarkMode()"
                 class="material-symbols-outlined font-bold hover:rotate-12 transition-transform">
                 {{ isDarkMode ? 'terminal' : 'terminal' }}
             </button>
+            <button (click)="toggleMenu()" class="lg:hidden material-symbols-outlined font-bold">
+                {{ isMenuOpen ? 'close' : 'menu' }}
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div *ngIf="isMenuOpen" 
+            class="fixed inset-0 top-[73px] bg-background/95 backdrop-blur-md z-40 flex flex-col p-8 lg:hidden animate-in fade-in slide-in-from-top-4 duration-300">
+            <nav class="flex flex-col gap-8">
+                <a (click)="closeMenu()" class="text-2xl font-label font-bold text-on-surface hover:text-secondary uppercase tracking-tighter" href="#about">[ ABOUT ]</a>
+                <a (click)="closeMenu()" class="text-2xl font-label font-bold text-on-surface hover:text-secondary uppercase tracking-tighter" href="#work">[ WORK ]</a>
+                <a (click)="closeMenu()" class="text-2xl font-label font-bold text-on-surface hover:text-secondary uppercase tracking-tighter" href="#projects">[ PROJECTS ]</a>
+                <a (click)="closeMenu()" class="text-2xl font-label font-bold text-on-surface hover:text-secondary uppercase tracking-tighter" href="#skills">[ SKILLS ]</a>
+                <a (click)="closeMenu()" class="text-2xl font-label font-bold text-on-surface hover:text-secondary uppercase tracking-tighter" href="#contact">[ CONTACT ]</a>
+            </nav>
+            <div class="mt-auto pt-8 border-t themed-border font-label text-sm opacity-50">
+                &copy; {{ currentYear }} RAMKUMAR_MURTHY
+            </div>
         </div>
     </header>
 
@@ -38,7 +56,7 @@
         <!-- Hero Section -->
         <section class="mb-24 mt-12">
             <div
-                class="themed-border bg-surface-container-low p-8 md:p-12 font-label leading-relaxed relative overflow-hidden md:text-xl">
+                class="themed-border bg-surface-container-low p-6 md:p-12 font-label leading-relaxed relative overflow-hidden text-[13px] md:text-base lg:text-xl">
                 <!-- Background Image Mask -->
                 <div class="absolute top-0 right-0 w-full md:w-1/2 h-full z-0 pointer-events-none"
                     style="mask-image: linear-gradient(to right, transparent, black); -webkit-mask-image: linear-gradient(to right, transparent, black);">
@@ -46,43 +64,43 @@
                         class="w-full h-full object-cover grayscale opacity-100 object-top" />
                 </div>
                 <div class="absolute top-0 right-0 p-4 opacity-10 select-none pointer-events-none">
-                    <span class="material-symbols-outlined text-[10rem]">code</span>
+                    <span class="material-symbols-outlined text-[6rem] md:text-[10rem]">code</span>
                 </div>
                 <!-- JSON Content -->
-                <div class="space-y-1 relative z-10">
-                    <div class="flex gap-6">
-                        <span class="text-on-surface-variant/20 shrink-0 font-medium">01_</span>
-                        <p class="text-2xl md:text-4xl"><span class="syntax-keyword">INIT</span>&nbsp;<span
+                <div class="space-y-1 relative z-10 overflow-x-hidden">
+                    <div class="flex gap-4 md:gap-6">
+                        <span class="text-on-surface-variant/20 shrink-0 font-medium whitespace-nowrap">01_</span>
+                        <p class="text-xl md:text-3xl lg:text-4xl"><span class="syntax-keyword">INIT</span>&nbsp;<span
                                 class="syntax-key">engineer </span> <span class="syntax-key">{{ '{' }}</span><span
                                 class="terminal-cursor"></span></p>
                     </div>
-                    <div class="flex gap-6 pl-8">
-                        <span class="text-on-surface-variant/20 shrink-0 font-medium">02_</span>
+                    <div class="flex gap-4 md:gap-6 pl-6 md:pl-8">
+                        <span class="text-on-surface-variant/20 shrink-0 font-medium whitespace-nowrap">02_</span>
                         <p><span class="syntax-key">"NAME"</span>: <span class="syntax-string">"{{ data.basics?.name
                                 }}"</span>,</p>
                     </div>
-                    <div class="flex gap-6 pl-8">
-                        <span class="text-on-surface-variant/20 shrink-0 font-medium">03_</span>
+                    <div class="flex gap-4 md:gap-6 pl-6 md:pl-8">
+                        <span class="text-on-surface-variant/20 shrink-0 font-medium whitespace-nowrap">03_</span>
                         <p><span class="syntax-key">"ROLE"</span>: <span class="syntax-string">"{{ data.basics?.label
                                 }}"</span>,</p>
                     </div>
-                    <div class="flex gap-6 pl-8">
-                        <span class="text-on-surface-variant/20 shrink-0 font-medium">04_</span>
-                        <p><span class="syntax-key">"SITE"</span>: <span class="syntax-string">"{{ data.basics?.url
+                    <div class="flex gap-4 md:gap-6 pl-6 md:pl-8">
+                        <span class="text-on-surface-variant/20 shrink-0 font-medium whitespace-nowrap">04_</span>
+                        <p class="break-all md:break-normal"><span class="syntax-key">"SITE"</span>: <span class="syntax-string">"{{ data.basics?.url
                                 }}"</span>,</p>
                     </div>
-                    <div class="flex gap-6 pl-8">
-                        <span class="text-on-surface-variant/20 shrink-0 font-medium">05_</span>
-                        <p><span class="syntax-key">"EMAIL"</span>: <span class="syntax-string">"{{ data.basics?.email
+                    <div class="flex gap-4 md:gap-6 pl-6 md:pl-8">
+                        <span class="text-on-surface-variant/20 shrink-0 font-medium whitespace-nowrap">05_</span>
+                        <p class="break-all md:break-normal"><span class="syntax-key">"EMAIL"</span>: <span class="syntax-string">"{{ data.basics?.email
                                 }}"</span>,</p>
                     </div>
-                    <div class="flex gap-6 pl-8">
-                        <span class="text-on-surface-variant/20 shrink-0 font-medium">06_</span>
+                    <div class="flex gap-4 md:gap-6 pl-6 md:pl-8">
+                        <span class="text-on-surface-variant/20 shrink-0 font-medium whitespace-nowrap">06_</span>
                         <p><span class="syntax-key">"LOC"</span>: <span class="syntax-string">"{{
                                 data.basics?.location?.city }}, {{ data.basics?.location?.countryCode }}"</span></p>
                     </div>
-                    <div class="flex gap-6">
-                        <span class="text-on-surface-variant/20 shrink-0 font-medium">07_</span>
+                    <div class="flex gap-4 md:gap-6">
+                        <span class="text-on-surface-variant/20 shrink-0 font-medium whitespace-nowrap">07_</span>
                         <p><span class="syntax-key">{{ '}' }};</span></p>
                     </div>
                 </div>

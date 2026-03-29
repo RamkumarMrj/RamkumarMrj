@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   data: any;
   currentYear: number = new Date().getFullYear();
   isDarkMode = false;
+  isMenuOpen = false;
   private iconPath: string = "assets/icons";
 
   constructor(
@@ -128,5 +129,18 @@ export class AppComponent implements OnInit {
         }, 100);
       }
     });
+  }
+  toggleMenu(): void {
+    this.isMenuOpen = !this.isMenuOpen;
+    if (this.isMenuOpen) {
+      this.renderer.addClass(document.body, 'overflow-hidden');
+    } else {
+      this.renderer.removeClass(document.body, 'overflow-hidden');
+    }
+  }
+
+  closeMenu(): void {
+    this.isMenuOpen = false;
+    this.renderer.removeClass(document.body, 'overflow-hidden');
   }
 }
