@@ -12,7 +12,7 @@
             <img *ngIf="data.basics?.image" [src]="data.basics.image" alt="Profile"
                 class="w-10 h-10 border themed-border object-cover" />
             <div class="hidden sm:block text-sm font-headline font-bold text-on-surface">
-                &gt; RAMKUMAR_TEST
+                &gt; {{ formatName(data.basics?.name) }}
             </div>
         </div>
         <nav class="hidden lg:flex items-center gap-6">
