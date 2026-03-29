@@ -5,10 +5,13 @@
     <header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-4 max-w-full themed-border"
         [style.background-color]="'var(--header-bg)'" [style.backdrop-filter]="'blur(var(--header-blur))'"
         style="border-top-width: 0; border-left-width: 0; border-right-width: 0;">
-        <div class="flex items-center gap-4">
+        <div class="flex items-center gap-3">
+            <button (click)="toggleMenu()" class="lg:hidden flex items-center justify-center w-10 h-10 border themed-border text-on-surface hover:bg-surface-container-high active:scale-95 transition-all">
+                <span class="text-xl font-bold leading-none">{{ isMenuOpen ? '✕' : '☰' }}</span>
+            </button>
             <img *ngIf="data.basics?.image" [src]="data.basics.image" alt="Profile"
                 class="w-10 h-10 border themed-border object-cover" />
-            <div class="text-sm font-headline font-bold text-on-surface">
+            <div class="hidden sm:block text-sm font-headline font-bold text-on-surface">
                 &gt; {{ formatName(data.basics?.name) }}
             </div>
         </div>
@@ -30,9 +33,6 @@
             <button (click)="toggleDarkMode()"
                 class="material-symbols-outlined font-bold hover:rotate-12 transition-transform">
                 {{ isDarkMode ? 'terminal' : 'terminal' }}
-            </button>
-            <button (click)="toggleMenu()" class="block lg:hidden material-symbols-outlined font-bold">
-                {{ isMenuOpen ? 'close' : 'menu' }}
             </button>
         </div>
 
