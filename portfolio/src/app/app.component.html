@@ -31,8 +31,8 @@
                 class="material-symbols-outlined font-bold hover:rotate-12 transition-transform">
                 {{ isDarkMode ? 'terminal' : 'terminal' }}
             </button>
-            <button (click)="toggleMenu()" class="lg:hidden flex items-center font-bold">
-                <span class="material-symbols-outlined">{{ isMenuOpen ? 'close' : 'menu' }}</span>
+            <button (click)="toggleMenu()" class="block lg:hidden material-symbols-outlined font-bold">
+                {{ isMenuOpen ? 'close' : 'menu' }}
             </button>
         </div>
 
