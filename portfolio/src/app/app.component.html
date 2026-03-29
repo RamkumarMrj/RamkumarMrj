@@ -12,7 +12,7 @@
                 &gt; {{ formatName(data.basics?.name) }}
             </div>
         </div>
-        <nav class="hidden xl:flex items-center gap-6">
+        <nav class="hidden lg:flex items-center gap-6">
             <a class="text-on-surface-variant font-bold hover:text-secondary transition-colors duration-150 font-label text-[11px] uppercase tracking-tighter"
                 href="#about">[ ABOUT ]</a>
             <a class="text-on-surface-variant font-bold hover:text-secondary transition-colors duration-150 font-label text-[11px] uppercase tracking-tighter"
@@ -31,14 +31,14 @@
                 class="material-symbols-outlined font-bold hover:rotate-12 transition-transform">
                 {{ isDarkMode ? 'terminal' : 'terminal' }}
             </button>
-            <button (click)="toggleMenu()" class="xl:hidden material-symbols-outlined font-bold">
-                {{ isMenuOpen ? 'close' : 'menu' }}
+            <button (click)="toggleMenu()" class="lg:hidden flex items-center font-bold">
+                <span class="material-symbols-outlined">{{ isMenuOpen ? 'close' : 'menu' }}</span>
             </button>
         </div>
 
         <!-- Mobile Menu Overlay -->
         <div *ngIf="isMenuOpen" 
-            class="fixed inset-0 top-[73px] bg-background/95 backdrop-blur-md z-40 flex flex-col p-8 xl:hidden animate-in fade-in slide-in-from-top-4 duration-300">
+            class="fixed inset-0 top-[73px] bg-background/95 backdrop-blur-md z-40 flex flex-col p-8 lg:hidden animate-in fade-in slide-in-from-top-4 duration-300">
             <nav class="flex flex-col gap-8">
                 <a (click)="closeMenu()" class="text-2xl font-label font-bold text-on-surface hover:text-secondary uppercase tracking-tighter" href="#about">[ ABOUT ]</a>
                 <a (click)="closeMenu()" class="text-2xl font-label font-bold text-on-surface hover:text-secondary uppercase tracking-tighter" href="#work">[ WORK ]</a>
